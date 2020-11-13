@@ -1,0 +1,11 @@
+---
+- name: autostart pool
+  become: true
+  command: 'virsh pool-autostart os'
+  args:
+    creates: /etc/libvirt/storage/autostart/os.xml
+  notify: start pool now
+
+- name: start pool now
+  become: true
+  command: 'virsh pool-start os'

@@ -1,0 +1,8 @@
+sch: www.google.com/search?q=%22options+snd-hda-intel+enable_msi%3D1%22
+sch: www.google.com/search?q=kvm+msi+interrupts+audio
+
+https://wiki.archlinux.org/index.php/Advanced_Linux_Sound_Architecture/Troubleshooting
+
+https://wiki.unraid.net/index.php/UnRAID_6/VM_Guest_Support#Enable_MSI_for_Interrupts_to_Fix_HDMI_Audio_Support
+
+Solution: https://forums.unraid.net/topic/55011-solved-how-to-make-linux-guest-enable-msi-function-on-the-gpu-audio-device/?tab=comments#comment-538469

@@ -1,0 +1,16 @@
+---
+- name: Create os iso pool directory
+  become: true
+  file:
+    path: '{{ cloud }}/libvirt/os'
+    state: directory
+    owner: '{{ansible_user}}'
+    group: '{{ansible_user}}'
+
+- name: Create domains directory
+  become: true
+  file:
+    path: '{{ cloud }}/domain'
+    state: directory
+    owner: '{{ansible_user}}'
+    group: '{{ansible_user}}'

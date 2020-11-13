@@ -1,0 +1,16 @@
+---
+# Nvidia
+
+GTX_710: 10de:128b,10de:0e0f
+
+GTX_720: 10de:1288,10de:0e0f
+
+GTX_730: unknown
+
+GTX_750: 10de:1381,10de:0fbc
+
+GTX_1060: 10de:1c02,10de:10f1
+
+GT_240: 10de:0ca3,10de:0be4
+
+Apple_A1310_GeForce_9500: 10de:0640

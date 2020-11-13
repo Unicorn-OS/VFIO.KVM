@@ -1,0 +1,14 @@
+---
+
+
+# qubitrenegade.com/virtualization/kvm/vfio/2019/07/17/VFIO-Fedora-Notes.html
+- name: Dracut Config
+  blockinfile:
+    path: /etc/dracut.conf.d/vfio.conf
+    block: |
+      add_drivers+="vfio vfio_iommu_type1 vfio_pci vfio_virqfd"
+    create: yes
+  notify: dracut regenerate
+  become: true
+
+      # install_items+="/sbin/vfio-pci-override.sh /usr/bin/dirname"

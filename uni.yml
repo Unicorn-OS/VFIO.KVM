@@ -1,0 +1,7 @@
+---
+- hosts: hyperion
+  roles:
+  - kvm
+  - allow-unsafe-interrupts
+  - vfio
+  - ids-vfio

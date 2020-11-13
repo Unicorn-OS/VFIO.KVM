@@ -1,0 +1,23 @@
+---
+# --- Initramfs
+
+- name: rebuild initramfs
+  shell: update-initramfs -k all -u
+  when: ansible_os_family == "Debian"
+  become: true
+
+- name: dracut regenerate
+  shell: dracut -f --kver $(uname -r)
+  when: ansible_os_family == "RedHat"
+  become: true
+
+# --- Grub
+- name: update grub Debian
+  shell: update-grub
+  become: yes
+  when: ansible_os_family == "Debian"
+
+- name: update grub RedHat
+  shell: grub2-mkconfig -o /boot/grub2/grub.cfg
+  become: yes
+  when: ansible_os_family == "RedHat"

@@ -1,0 +1,25 @@
+---
+# This is Headless kvm with libvirt! it does not have a management UI
+
+- name: KVM
+  apt:
+    name: "{{ packages }}"
+  vars:
+    packages:
+    - qemu-kvm
+    - libvirt-daemon-system
+    - libvirt-clients
+    - virt-top
+
+- name: Network
+  apt:
+    name: "{{ packages }}"
+  vars:
+    packages:
+    - bridge-utils
+
+- name: Add to group
+  user:
+    name: me
+    groups: libvirt
+    append: yes

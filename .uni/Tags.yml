@@ -1,0 +1,7 @@
+#
+Hyperion:
+- core:	headless!
+- gui:	inc virt-manager
+- openstack:	node for openstack
+- mini:		node with OVirt!
+- migrate:  vm migration features enabled

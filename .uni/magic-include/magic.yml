@@ -1,0 +1,10 @@
+# Preferred
+- include_tasks: '{{ ansible_distribution }}.yml'
+
+# Alt
+# - include_tasks: '{{ ansible_os_family }}.yml'
+
+- debug:
+    msg: '{{ ansible_distribution }} based on {{ ansible_os_family }}'
+
+# prime.[Magic Include] /docs.ansible.com/ansible/2.3/playbooks_conditionals.html, /serverfault.com/questions/875247/whats-the-difference-between-include-tasks-and-import-tasks

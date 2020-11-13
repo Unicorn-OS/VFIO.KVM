@@ -1,0 +1,12 @@
+---
+- name: install headless KVM
+  dnf:
+    name:
+      - qemu-kvm
+      - libvirt
+      - libguestfs-tools
+      - virt-install
+      - virt-top
+    state: latest
+  become: true
+  notify: start libvirtd

@@ -1,0 +1,7 @@
+---
+- name: Install virt-manager
+  apt:
+    name: "{{ packages }}"
+  vars:
+    packages:
+    - virt-manager

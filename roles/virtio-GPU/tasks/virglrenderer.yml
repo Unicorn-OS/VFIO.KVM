@@ -1,0 +1,6 @@
+---
+- name: install virglrenderer
+  dnf:
+    name:
+      - virglrenderer
+    state: latest

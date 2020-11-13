@@ -1,0 +1,7 @@
+# install a Minimum CentOS! then unicloud will do the rest.
+[local_centos_8]
+i5-6400 ansible_host=192.168.2.143
+
+[local_centos_8:vars]
+ansible_become_password=u
+ansible_user=root

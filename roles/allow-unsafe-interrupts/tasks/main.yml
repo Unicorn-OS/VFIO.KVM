@@ -1,0 +1,2 @@
+---
+- import_tasks: in-modprobe.d.yml

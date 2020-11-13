@@ -1,0 +1,4 @@
+[submodule "os-img"]
+	path = roles/os-img
+	url = git@gitlab.com:UniSocial.Net/UniCloud/Hyperion/os-img.git
+	branch = master

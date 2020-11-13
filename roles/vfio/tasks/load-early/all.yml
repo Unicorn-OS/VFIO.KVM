@@ -1,0 +1,14 @@
+---
+# qubitrenegade.com/virtualization/kvm/vfio/2019/07/17/VFIO-Fedora-Notes.html
+
+# www.regextester.com/15
+- name: Loading vfio-pci in Grub ramdisk!
+  become: yes
+  replace:
+    path: /etc/default/grub
+    regexp: '^GRUB_CMDLINE_LINUX="intel_iommu=on ((?!rd.driver.pre))'
+    replace: 'GRUB_CMDLINE_LINUX="intel_iommu=on rd.driver.pre=vfio-pci '
+    backup: yes
+  notify:
+    - update grub Debian
+    - update grub RedHat

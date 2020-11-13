@@ -1,0 +1,9 @@
+---
+- debug:
+    msg: |
+      # tag Options:
+      core: Default is headless
+      gui: includes Virt-Manager
+      openstack: A compute node
+      migrate: enable live migration
+      

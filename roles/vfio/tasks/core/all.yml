@@ -1,0 +1,12 @@
+---
+# www.regextester.com/15
+- name: Grub iommu
+  become: yes
+  replace:
+    path: /etc/default/grub
+    regexp: '^GRUB_CMDLINE_LINUX="((?!intel_iommu))'
+    replace: 'GRUB_CMDLINE_LINUX="intel_iommu=on '
+    # backup: yes
+  notify:
+    - update grub Debian
+    - update grub RedHat
