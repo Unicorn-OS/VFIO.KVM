@@ -1,8 +1,0 @@
----
-
-- import_tasks: blacklist/all.yml
-  tags:
-    - never
-    - blacklist
-
-- import_tasks: pci/all.yml

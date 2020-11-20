@@ -1,0 +1,30 @@
+---
+core:
+  enable: true
+  gui: false
+
+vfio:
+  enable: false
+  allow_unsafe_interrupt: false
+
+gpu:
+  enable: false
+  ids: false
+  blacklist: false
+  virtio: false
+
+  # VFIO passthrough
+  # ids for device passthrough
+  # virtio: GPU Sharing
+
+fix:
+  load_early: false
+  acs_override: false
+
+network:
+  bridge: true
+  openvswitch: false
+
+tool:
+  libguestfs: false
+  monitor: false

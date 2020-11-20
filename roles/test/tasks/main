@@ -1,0 +1,4 @@
+---
+
+- debug:
+    msg: 'vfio {{vfio.enable}}'

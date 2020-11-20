@@ -1,0 +1,4 @@
+---
+gui: true
+vfio: true
+vfio_ids: true

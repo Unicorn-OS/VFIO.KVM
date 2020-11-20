@@ -1,8 +1,0 @@
----
-- import_tasks: core/magic.yml
-  tags:
-    - core
-
-- import_tasks: load-early/magic.yml
-  tags:
-    - load-early

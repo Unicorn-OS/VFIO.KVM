@@ -1,0 +1,14 @@
+---
+- name: Blacklist GPU driver
+  blockinfile:
+    path: /etc/modprobe.d/blacklist-gpu.conf
+    create: yes
+    block: |
+      blacklist amdgpu
+      blacklist nouveau
+      blacklist nvidiafb
+      options nouveau modeset=0
+  notify:
+    - rebuild initramfs
+  when: gpu.blacklist
+  become: true

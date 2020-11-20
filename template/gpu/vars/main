@@ -1,0 +1,13 @@
+---
+core:
+  enable: true
+  gui: true
+
+vfio:
+  enable: true
+
+gpu:
+  enable: true
+  ids: true
+  blacklist: true
+  virtio: false
