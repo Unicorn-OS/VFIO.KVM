@@ -1,13 +1,14 @@
 ---
 # Start installing all roles One by one! Using conditions in roles, set by template/vars
 dependencies:
+- role: default
 - role: this/my
-# - role: test
+- role: test
 - role: core/kvm
 - role: core/gui
 - role: core/vfio
-- role: gpu/ids
+- role: ids
 - role: network/bridge
-- role: tool/libguestfs
-- role: tool/monitor
+# - role: tool/libguestfs
+# - role: tool/monitor
 # - role: vfio/allow_unsafe_interrupt

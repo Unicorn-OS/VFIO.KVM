@@ -1,7 +1,7 @@
 ---
 # --- Initramfs
-- name: rebuild initramfs
-  shell: update-initramfs -k all -u
+- name: update initramfs
+  shell: update-initramfs -u -k all
   when: ansible_os_family == "Debian"
   become: true
 

@@ -1,7 +1,0 @@
----
-
-- import_tasks: blacklist
-  when: gpu.blacklist
-
-- import_tasks: vfio-pci
-  when: gpu.ids

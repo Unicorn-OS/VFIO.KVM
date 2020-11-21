@@ -9,13 +9,11 @@ vfio:
 
 gpu:
   enable: false
-  ids: false
-  blacklist: false
   virtio: false
 
-  # VFIO passthrough
-  # ids for device passthrough
-  # virtio: GPU Sharing
+ids:
+  bind: false
+  blacklist: false
 
 fix:
   load_early: false

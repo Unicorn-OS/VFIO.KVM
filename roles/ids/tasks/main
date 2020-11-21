@@ -1,0 +1,9 @@
+---
+- debug:
+    msg: 'Bind? {{ids.bind}}'
+
+- import_tasks: bind
+  when: ids.bind
+
+- import_tasks: blacklist
+  when: ids.blacklist

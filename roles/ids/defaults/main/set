@@ -1,0 +1,10 @@
+---
+# all
+# vfio_ids: '{{GTX_720}},{{GTX_750}},{{GTX_1060}}'
+
+# Test
+vfio_ids: '{{GTX_1060}}'
+
+# using vfio.sh
+device0: '000:01:00.0'
+device1: '0000:01:00.1'

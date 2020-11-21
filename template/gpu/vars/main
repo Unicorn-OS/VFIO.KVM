@@ -8,6 +8,8 @@ vfio:
 
 gpu:
   enable: true
-  ids: true
-  blacklist: true
   virtio: false
+
+ids:
+  bind: true
+  blacklist: true

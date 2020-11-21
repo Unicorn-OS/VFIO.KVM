@@ -9,6 +9,6 @@
       blacklist nvidiafb
       options nouveau modeset=0
   notify:
-    - rebuild initramfs
-  when: gpu.blacklist
+    - update initramfs
+  when: ids.blacklist
   become: true
