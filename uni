@@ -1,6 +1,6 @@
 ---
 - hosts: default
   roles:
-    # - template/gpu
-    # - this
-    - test
+    - template/gpu
+    - this
+    # - test
