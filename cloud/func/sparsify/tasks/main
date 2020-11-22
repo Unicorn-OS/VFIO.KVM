@@ -1,0 +1,3 @@
+---
+chdir: '{{img}}'
+shell: 'TMPDIR={{tmpdir}} virt-sparsify {{vm}}.qcow2 /mnt/uni/stor/{{vm}}.qcow2'
