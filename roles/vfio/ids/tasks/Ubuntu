@@ -1,0 +1,41 @@
+---
+
+# old Releases:
+- name: archived releases
+  include_tasks: archive/{{ ansible_distribution }}-{{ ansible_distribution_major_version}}-{{ansible_distribution_release}}
+  when: ansible_distribution_release in earlier_os
+
+# Latest Ubuntu 20.04 & 20.10:
+- name: 20.04 & later
+  block:
+  - name: bind with script
+    template:
+      src: vfio.sh
+      dest: /etc/initramfs-tools/scripts/init-top/vfio.sh
+      owner: root
+      mode: '0555'
+
+  - name: bind modules
+    lineinfile:
+      path: /etc/initramfs-tools/modules
+      line: 'options kvm ignore_msrs=1'
+    notify: update initramfs
+
+  - debug:
+      msg: 'From inside block!'
+  become: true
+  when: ansible_distribution_major_version in later_os
+
+- name: Blacklist GPU driver
+  blockinfile:
+    path: /etc/modprobe.d/blacklist-gpu.conf
+    create: yes
+    block: |
+      blacklist amdgpu
+      blacklist nouveau
+      blacklist nvidiafb
+      options nouveau modeset=0
+  notify:
+    - update initramfs
+  become: true
+  when: ids.blacklist

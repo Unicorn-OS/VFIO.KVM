@@ -1,0 +1,12 @@
+---
+- debug:
+    msg: '{{ ansible_distribution }} {{ ansible_distribution_major_version}}'
+
+- name: check vfio binds
+  shell: lspci -nnk
+
+- name: check iommu kernel cmdline
+  shell: cat /proc/cmdline | grep -i iommu
+
+- name: check iommu dmesg
+  shell dmesg | grep -i iommu

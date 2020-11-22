@@ -1,0 +1,46 @@
+---
+
+- debug:
+    msg: 'Ubuntu 18 bionic'
+
+# Ubuntu 18.04
+# guide: https://mathiashueber.com/windows-virtual-machine-gpu-passthrough-ubuntu/
+
+- block:
+  - name: /etc/initramfs-tools/modules
+    lineinfile:
+      path: /etc/initramfs-tools/modules
+      line: 'vfio vfio_iommu_type1 vfio_virqfd vfio_pci ids={{ vfio_ids }}'
+      create: yes
+
+  - name: /etc/modules
+    lineinfile:
+      path: /etc/modules
+      line: 'vfio vfio_iommu_type1 vfio_pci ids={{ vfio_ids }}'
+      create: yes
+
+  - name: /etc/modprobe.d/nvidia.conf
+    blockinfile:
+      path: /etc/modprobe.d/nvidia.conf
+      create: yes
+      block: |
+        softdep nouveau pre: vfio-pci
+        softdep nvidia pre: vfio-pci
+        softdep nvidia* pre: vfio-pci
+
+  - name: /etc/modprobe.d/vfio.conf
+    lineinfile:
+      path: /etc/modprobe.d/vfio.conf
+      line: 'options vfio-pci ids={{ vfio_ids }}'
+      create: yes
+
+  - name: Windows BSOD solved
+    lineinfile:
+      path: /etc/modprobe.d/kvm.conf
+      line: options kvm ignore_msrs=1
+      create: yes
+    notify:
+      - update initramfs
+
+  become: true
+  when: ansible_distribution_release in earlier_os

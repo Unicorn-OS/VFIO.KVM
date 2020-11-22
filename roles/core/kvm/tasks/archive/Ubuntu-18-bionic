@@ -1,0 +1,6 @@
+---
+- name: pkgs for Ubuntu 18 bionic
+  apt:
+    pkg:
+    - libvirt-bin
+  become: true
