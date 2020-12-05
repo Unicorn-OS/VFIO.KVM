@@ -1,7 +1,7 @@
-[default]
+[local]
 localhost
 
-[default:vars]
+[local:vars]
 ansible_connection=local
 ansible_become_password=u
 ansible_user=me

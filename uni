@@ -1,6 +1,5 @@
 ---
-- hosts: default
+- hosts: local
   roles:
     - template/gpu
-    - this
-    # - test
+    # - test/run

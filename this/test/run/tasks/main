@@ -9,4 +9,4 @@
   shell: cat /proc/cmdline | grep -i iommu
 
 - name: check iommu dmesg
-  shell dmesg | grep -i iommu
+  shell: dmesg | grep -i iommu
