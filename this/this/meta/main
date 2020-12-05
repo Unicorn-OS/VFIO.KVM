@@ -2,11 +2,11 @@
 # Start installing all roles One by one! Using conditions in roles, set by template/vars
 dependencies:
 - role: my
-- role: core/kvm
-- role: core/gui
-- role: core/vfio
-- role: vfio/ids
-- role: network/bridge
+- role: core/Kvm
+# - role: core/gui
+# - role: core/vfio
+# - role: vfio/ids
+# - role: network/bridge
 
 ## Break
 # - role: tool/libguestfs
