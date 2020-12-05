@@ -3,7 +3,4 @@
   dnf:
     name:
       - virt-manager
-    state: latest
   become: true
-  tags:
-    - gui

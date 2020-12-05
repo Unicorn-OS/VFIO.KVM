@@ -1,0 +1,6 @@
+---
+- name: install GUI Virt-Manager
+  dnf:
+    name:
+      - virt-manager
+  become: true
