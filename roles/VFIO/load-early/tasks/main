@@ -11,4 +11,5 @@
     backup: yes
   notify:
     - update grub Debian
+    - update grub elementary OS
     - update grub RedHat
