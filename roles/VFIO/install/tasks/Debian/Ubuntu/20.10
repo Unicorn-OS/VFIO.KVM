@@ -20,4 +20,4 @@
   notify:
     - initramfs rebuild Debian
 
-- include_tasks: common
+- include_tasks: common/iommu on

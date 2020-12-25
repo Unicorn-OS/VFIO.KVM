@@ -1,7 +1,6 @@
 ---
 
-# Latest Ubuntu 20.04 & 20.10:
-- name: 20.04 & later
+- name: Ubuntu 20.04 & later
   block:
   - name: bind with script
     template:
@@ -19,7 +18,6 @@
   - debug:
       msg: 'From inside block!'
   become: true
-  when: ansible_distribution_major_version in later_os
 
 - name: Blacklist GPU driver
   blockinfile:
