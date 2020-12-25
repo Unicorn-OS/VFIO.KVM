@@ -1,0 +1,17 @@
+---
+- name: Install software-properties-common
+  apt:
+    name: software-properties-common
+    state: present
+  become: true
+
+- name: Add ansible stable repository
+  apt_repository:
+    repo: ppa:ansible/ansible
+  become: true
+
+- name: Latest ansible
+  apt:
+    name: ansible
+    state: latest
+  become: true
