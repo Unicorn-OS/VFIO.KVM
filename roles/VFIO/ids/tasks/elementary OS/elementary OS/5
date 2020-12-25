@@ -1,6 +1,6 @@
 ---
 
-- name: elementary OS | Ubuntu 20.04 & later
+- name: elementary OS 5, Ubuntu 20.04 & later
   block:
   - name: bind with script
     template:
