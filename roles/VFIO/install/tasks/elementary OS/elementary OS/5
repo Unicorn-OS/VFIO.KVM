@@ -1,0 +1,23 @@
+---
+- name: OVMF firmware
+  become: yes
+  apt:
+    name: "{{ packages }}"
+  vars:
+    packages:
+    - ovmf
+
+- name: /etc/modules
+  become: yes
+  blockinfile:
+    path: /etc/modules
+    block: |
+      pci_stub
+      vfio
+      vfio_iommu_type1
+      vfio_pci
+      vfio_virqfd
+  notify:
+    - initramfs rebuild Debian
+
+- include_tasks: common

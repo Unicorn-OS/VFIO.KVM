@@ -1,0 +1,17 @@
+---
+# This is Headless kvm with libvirt! it does not have a management UI
+
+- name: Install KVM for elementary OS 5
+  apt:
+    pkg:
+    - libvirt-bin
+    - qemu-kvm
+    - libvirt-daemon-system
+    - libvirt-clients
+  become: true
+
+- name: Add to group
+  user:
+    name: me
+    groups: libvirt
+    append: yes

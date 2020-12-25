@@ -4,7 +4,7 @@ dependencies:
 - role: my
 - role: core/KVM
 - role: core/Gui
-# - role: core/vfio
+- role: VFIO/install
 # - role: vfio/ids
 # - role: network/bridge
 
