@@ -2,10 +2,11 @@
 # Start installing all roles One by one! Using conditions in roles, set by template/vars
 dependencies:
 - role: my
+- role: common
 - role: core/KVM
 - role: core/Gui
 - role: VFIO/install
-# - role: vfio/ids
+- role: VFIO/ids
 # - role: network/bridge
 
 ## Break

@@ -2,8 +2,8 @@
 # --- Initramfs
 - name: update initramfs
   shell: update-initramfs -u -k all
-  when: ansible_os_family == "Debian"
   become: true
+  # when: ansible_os_family == "Debian"
 
 - name: dracut regenerate
   shell: dracut -f --kver $(uname -r)
