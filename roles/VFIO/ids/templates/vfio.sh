@@ -16,7 +16,7 @@ esac
 
 # Need to make this use ansible Lists instead!
 #
-for dev in {{device0}} {{device1}}
+for dev in {{device0}} {{device1}} {{device2}}
 do
  echo "vfio-pci" > /sys/bus/pci/devices/$dev/driver_override
  echo "$dev" > /sys/bus/pci/drivers/vfio-pci/bind
