@@ -1,3 +1,5 @@
 ---
+# This is Headless kvm with libvirt! it does not have a management UI
+
 - include_tasks: '{{ ansible_os_family }}/{{ ansible_distribution }}/{{ ansible_distribution_major_version }}'
   when: core.enable

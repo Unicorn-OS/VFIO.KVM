@@ -1,0 +1,6 @@
+---
+- name: Install virt-manager
+  apt:
+    pkg:
+    - virt-manager
+  become: true

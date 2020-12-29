@@ -1,0 +1,16 @@
+---
+# Debian 10
+- name: Install KVM
+  apt:
+    pkg:
+    - qemu-kvm
+    - libvirt-daemon-system
+    - libvirt-clients
+  become: true
+
+- name: Add to group
+  user:
+    name: me
+    groups: libvirt
+    append: yes
+  become: true
