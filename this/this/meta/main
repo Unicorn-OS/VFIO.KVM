@@ -5,9 +5,9 @@ dependencies:
 - role: common
 - role: core/KVM
 - role: core/Gui
-- role: VFIO/install
-- role: VFIO/ids
-- role: VFIO/load-early
+- role: VFIO/init
+#- role: VFIO/ids
+#- role: VFIO/load-early
 # - role: network/bridge
 
 ## Break
