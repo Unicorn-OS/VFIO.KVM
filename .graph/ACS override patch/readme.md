@@ -10,5 +10,3 @@ https://www.reddit.com/r/VFIO/comments/bvif8d/official_reason_why_acs_override_p
 Code:
 https://wiki.archlinux.org/index.php/PCI_passthrough_via_OVMF#Bypassing_the_IOMMU_groups_(ACS_override_patch)
 
-Guide:
-https://forum.level1techs.com/t/using-acs-to-passthrough-devices-without-whole-iommu-group/122913

@@ -8,3 +8,7 @@
 - name: Install headers
   apt:
     deb: https://gitlab.com/Queuecumber/linux-acs-override/-/jobs/823464929/artifacts/raw/linux-headers-5.8.18-acso_5.8.18-acso-1_amd64.deb
+
+
+- name: Grub
+  include_tasks: grub

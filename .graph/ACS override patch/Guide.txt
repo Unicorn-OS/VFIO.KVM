@@ -1,0 +1,4 @@
+Guide:
+https://forum.level1techs.com/t/using-acs-to-passthrough-devices-without-whole-iommu-group/122913
+
+https://forum.level1techs.com/t/enabling-acs-override-in-pop-os-20-04/158932
