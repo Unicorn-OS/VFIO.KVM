@@ -1,0 +1,4 @@
+---
+core:
+  enable: true
+  gui: true
