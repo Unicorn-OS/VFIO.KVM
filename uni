@@ -1,14 +1,9 @@
 ---
-- hosts: local
-  vars:
-    pre: false
-  roles:
-    - latest-ansible
-  when: pre
+
 
 - hosts: local
   roles:
-    #- template/gpu
+    - template/gpu
     - template/gui
     - this
     # - test/run
