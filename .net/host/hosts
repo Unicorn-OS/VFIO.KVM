@@ -12,3 +12,7 @@ ansible_user=me
 [metal:vars]
 ansible_become_password=u
 ansible_user=me
+
+
+[node:children]
+metal
