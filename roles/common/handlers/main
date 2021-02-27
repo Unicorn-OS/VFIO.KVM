@@ -1,5 +1,5 @@
 ---
-# --- Initramfs
+# --- Initramfs ---
 - name: update initramfs Debian
   shell: update-initramfs -u -k all
   become: true
@@ -11,7 +11,7 @@
   become: true
 
 
-# --- Grub
+# --- Grub ---
 - name: update grub Archlinux
   shell: update-grub
   when: ansible_os_family == "Archlinux"
