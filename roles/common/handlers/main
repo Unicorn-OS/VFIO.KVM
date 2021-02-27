@@ -1,24 +1,25 @@
 ---
 # --- Initramfs
-- name: update initramfs
+- name: update initramfs Debian
   shell: update-initramfs -u -k all
   become: true
-  # when: ansible_os_family == "Debian"
+  when: ansible_os_family == "Debian"
 
-- name: dracut regenerate
+- name: dracut regenerate RedHat
   shell: dracut -f --kver $(uname -r)
   when: ansible_os_family == "RedHat"
   become: true
 
+
 # --- Grub
+- name: update grub Archlinux
+  shell: update-grub
+  when: ansible_os_family == "Archlinux"
+  become: true
+
 - name: update grub Debian
   shell: update-grub
   when: ansible_os_family == "Debian"
-  become: true
-
-- name: update grub RedHat
-  shell: grub2-mkconfig -o /boot/grub2/grub.cfg
-  when: ansible_os_family == "RedHat"
   become: true
 
 - name: update grub elementary OS
@@ -26,3 +27,7 @@
   when: ansible_os_family == "elementary OS"
   become: true
 
+- name: update grub RedHat
+  shell: grub2-mkconfig -o /boot/grub2/grub.cfg
+  when: ansible_os_family == "RedHat"
+  become: true

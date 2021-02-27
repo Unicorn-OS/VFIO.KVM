@@ -10,3 +10,6 @@
   notify:
     - update grub Debian
     - update grub RedHat
+    - update grub Archlinux
+    - update grub elementary OS
+    - 'update grub {{ansible_os_family}}'
