@@ -5,3 +5,10 @@ localhost
 ansible_connection=local
 ansible_become_password=u
 ansible_user=me
+
+[metal]
+192.168.3.100
+
+[metal:vars]
+ansible_become_password=u
+ansible_user=me
