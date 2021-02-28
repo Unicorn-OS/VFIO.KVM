@@ -4,3 +4,7 @@
 [uninet:vars]
 ansible_become_password=u
 ansible_user=me
+
+
+[node:children]
+uninet

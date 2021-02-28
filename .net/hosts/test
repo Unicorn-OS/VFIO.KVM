@@ -1,6 +1,0 @@
-[try]
-192.168.3.254
-
-[try:vars]
-ansible_become_password=u
-ansible_user=me

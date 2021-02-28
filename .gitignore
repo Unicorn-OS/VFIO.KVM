@@ -1,1 +1,7 @@
-.net/hosts/uninet
+# UniNetwork Dynamic Inventory
+ansible.cfg
+.net/hosts/*
+!.net/hosts/local
+
+# HwD
+hwd/*
