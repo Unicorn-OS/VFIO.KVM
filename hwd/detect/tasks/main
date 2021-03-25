@@ -1,4 +1,4 @@
 ---
 - name: AMD Asus ROG
   include_role:
-    name: ASUSTeK/ROG/Strix/GA35DX_G35DX
+    name: hwd/ASUSTeK/ROG/Strix/GA35DX_G35DX
