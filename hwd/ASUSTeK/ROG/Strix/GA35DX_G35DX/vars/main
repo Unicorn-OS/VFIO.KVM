@@ -1,4 +1,7 @@
 ---
+grub:
+  efifb: 'efifb:off'
+
 device0: '0000:09:00.0'
 device1: '0000:09:00.1'
 device2: '0000:09:00.2'
