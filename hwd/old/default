@@ -1,0 +1,12 @@
+---
+# Ubuntu archived releases & CentOS
+# Examples:
+detected:
+  gpu0: '{{GTX_1060}}'
+
+vfio_ids: '{{detected.gpu0}}, {{detected.gpu1}}, {{detected.gpu2}}, {{detected.gpu3}}'
+
+# Ubuntu 20.04 and later: using vfio.sh
+device0: '0000:01:00.0'
+device1: '0000:01:00.1'
+device2: '0000:04:00.0'
