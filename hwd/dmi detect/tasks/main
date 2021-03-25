@@ -1,0 +1,7 @@
+Use dmidecode -> json and parse it in ansible to detect Hardware!
+
+ex:
+System Information
+	Manufacturer: ASUSTeK COMPUTER INC.
+	Product Name: ROG Strix GA35DX_G35DX
+	Version: 1.0       
