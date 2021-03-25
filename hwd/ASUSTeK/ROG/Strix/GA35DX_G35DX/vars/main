@@ -2,3 +2,6 @@
 device0: '0000:09:00.0'
 device1: '0000:09:00.1'
 device2: '0000:09:00.2'
+device3: '0000:09:00.3'
+
+all_vfio_devices: '{{device0}} {{device1}} {{device2}} {{device3}}'
