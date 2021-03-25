@@ -3,8 +3,8 @@
 dependencies:
 - role: my
 - role: common
-- role: core/KVM
-- role: core/Gui
+- role: core/kvm
+- role: core/gui
 - role: vfio/init
 - role: vfio-ids
 #- role: VFIO/load-early
