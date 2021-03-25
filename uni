@@ -1,7 +1,7 @@
 ---
-
-- hosts: node
+- hosts: net
   roles:
+    - hwd/detect
     - template/gpu
     - template/gui
     - this
