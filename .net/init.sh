@@ -5,7 +5,7 @@ dynamic(){
 }
 
 static(){
-  cp uninet.e hosts/uninet
+  cp net.e hosts/net
   ln -srf ansible.cfg.e ../ansible.cfg
 }
 
