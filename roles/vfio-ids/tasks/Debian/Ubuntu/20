@@ -36,6 +36,6 @@
       blacklist nvidiafb
       options nouveau modeset=0
   notify:
-    - update initramfs
+    - 'update initramfs {{ansible_os_family}}'
   become: true
   when: ids.blacklist
