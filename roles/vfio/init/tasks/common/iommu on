@@ -1,6 +1,6 @@
 ---
 # www.regextester.com/15
-- name: Grub iommu on
+- name: Intel iommu on Grub
   become: yes
   replace:
     path: /etc/default/grub
@@ -13,3 +13,19 @@
     - update grub Archlinux
     - update grub elementary OS
     - 'update grub {{ansible_os_family}}'
+  when: ansible_facts.processor[1] != 'AuthenticAMD'
+
+- name: AMD iommu on Grub
+  become: yes
+  replace:
+    path: /etc/default/grub
+    regexp: '^GRUB_CMDLINE_LINUX="((?!amd_iommu))'
+    replace: 'GRUB_CMDLINE_LINUX="amd_iommu=on iommu=pt kvm_amd.npt=1 kvm_amd.avic=1 '
+    # backup: yes
+  notify:
+    - update grub Debian
+    - update grub RedHat
+    - update grub Archlinux
+    - update grub elementary OS
+    - 'update grub {{ansible_os_family}}'
+  when: ansible_facts.processor[1] == 'AuthenticAMD'
