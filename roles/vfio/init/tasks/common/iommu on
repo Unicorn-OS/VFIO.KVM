@@ -20,7 +20,7 @@
   replace:
     path: /etc/default/grub
     regexp: '^GRUB_CMDLINE_LINUX="((?!amd_iommu))'
-    replace: 'GRUB_CMDLINE_LINUX="amd_iommu=on iommu=pt {{grub.efifb}} {{grub.kvm_amd}} '
+    replace: 'GRUB_CMDLINE_LINUX="amd_iommu=on iommu=pt {{grub.efifb}} {{kvm_amd}} '
     # backup: yes
   notify:
     - update grub Debian
