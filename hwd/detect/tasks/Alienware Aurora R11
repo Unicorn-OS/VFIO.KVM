@@ -1,0 +1,8 @@
+---
+- name: Alienware Aurora R11
+  include_role:
+    public: yes
+    name: hwd/Alienware/Aurora R11
+
+- debug:
+    msg: '{{device0}}'

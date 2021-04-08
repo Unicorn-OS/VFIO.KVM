@@ -1,0 +1,8 @@
+---
+- name: AMD Asus ROG
+  include_role:
+    public: yes
+    name: hwd/ASUSTeK/ROG/Strix/GA35DX_G35DX
+
+- debug:
+    msg: '{{device0}}'
