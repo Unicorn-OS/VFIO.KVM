@@ -8,4 +8,4 @@ ansible_user=me
 
 [net:children]
 local
-lan
+#lan
