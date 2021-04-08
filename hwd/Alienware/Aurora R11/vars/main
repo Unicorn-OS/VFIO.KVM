@@ -1,6 +1,6 @@
 ---
 grub:
-  efifb: 'efifb:off'
+  efifb: 'video=efifb:off'
 
 device0: '0000:01:00.0'
 device1: '0000:01:00.1'

@@ -1,5 +1,7 @@
 ---
 - hosts: net
+  vars:
+    hw_overide: 'Alienware Aurora R11'
   roles:
     - hwd/detect
     - template/gpu
