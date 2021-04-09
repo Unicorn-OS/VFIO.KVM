@@ -1,7 +1,7 @@
 ---
 - hosts: net
   vars:
-    hw_overide: 'Alienware Aurora R11'
+    hwd_overide: 'ASUSTeK ROG Strix'
   roles:
     - hwd/detect
     - template/gpu

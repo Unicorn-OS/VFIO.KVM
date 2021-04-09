@@ -1,3 +1,6 @@
 ---
 - include_tasks: '{{hw_overide}}'
-  when: hw_overide is defined
+  when: hwd_overide is defined
+
+# 'ASUSTeK ROG Strix'
+# 'Alienware Aurora R11'
