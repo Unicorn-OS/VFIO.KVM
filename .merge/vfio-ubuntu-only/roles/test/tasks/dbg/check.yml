@@ -1,0 +1,28 @@
+---
+- name: check grub
+  shell: cat /proc/cmdline
+
+- name: check vfio
+  shell: lspci -nnk
+
+- name: check dmesg iommu
+  shell: dmesg | grep -i iommu
+  failed_when: false
+
+- name: check vfio ids
+  debug:
+    msg: 'my vfio ids {{ vfio_ids }}'
+
+- name: copy checkGroups
+  copy:
+    src: '{{ role_path }}/files/checkGroups'
+    dest: /usr/local/bin/
+  become: yes
+
+- name: my home
+  debug:
+    msg: 'my /home/{{ ansible_user }}'
+
+# Fix! Script is broken in 'ansible 2.8.3' on 'Ubuntu 19.10'
+# - name: test scr
+#   script: '/home/me/code/vfio/ansible/roles/test/files/who.sh'

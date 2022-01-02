@@ -1,0 +1,7 @@
+---
+# Dell optiplex 7010
+dell_7010_pci: 8086:0151
+makeGroupsValid: {{dell_7010_pci_bridge}}
+
+# Some devices Cannot be blacklisted! must be unbound early
+unbindEarly:

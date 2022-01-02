@@ -1,0 +1,9 @@
+---
+# enables VFIO passthrough for Hyperion
+- hosts: test
+  remote_user: root
+  become: yes
+  become_method: sudo
+  roles:
+    - group
+    # - vfio-pci.grub

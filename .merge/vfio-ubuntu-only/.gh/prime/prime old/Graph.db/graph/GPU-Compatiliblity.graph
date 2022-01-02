@@ -1,0 +1,23 @@
+note: "Works Perfectly! GPU boots to ElementaryOS desktop! Tested on Xen 4.10 on Xubuntu 16.04 with ElementarOS as guest."
+steps: "After First install remove vnc, set the gfx_passthru=1 and reboot!"
+works: "yes"
+bios "initial graphics: PCI Express"
+xen: "Xen 4.10 compiled"
+compile-note: "compiled from wiki.xenproject.org/wiki/Compiling_Xen_From_Source"
+host: "Xubuntu 16.04"
+guest: "Elementary OS"
+driver: "pciback"
+storage: "LVM"
+pci-slot: "03:00.0"
+
+gpu-working: [
+powercolor RX 580,
+GT 720
+GT 730
+GTX 550 Ti
+]
+
+gpu-failed: [
+manufacturer: Galaxy
+GTX 750
+]

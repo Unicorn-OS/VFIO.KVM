@@ -1,0 +1,27 @@
+---
+
+- name: reset   # in: group_vars/all
+  file:
+    path: '{{ item }}'
+    state: absent
+  loop:
+    - '/etc/dracut.conf.d/vfio.conf'
+    - '/home/me/log/dracut'
+  when: reset
+
+- name: Remove driver that breaks Dracut
+  lineinfile:
+    path: /etc/dracut.conf.d/10-debian.conf
+    line: 'add_drivers+="crc32c "'
+    state: absent
+
+- name: dracut.conf.d/vfio.conf
+  lineinfile:
+    path: /etc/dracut.conf.d/vfio.conf
+    regexp: '^add_drivers*'
+    line: add_drivers+="vfio vfio_iommu_type1 vfio_pci vfio_virqfd"
+    create: yes
+  notify:
+    - dracut regenerate
+
+- meta: flush_handlers

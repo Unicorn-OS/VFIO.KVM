@@ -1,0 +1,16 @@
+
+Works(){
+  /*
+  https://aykevl.nl/2017/12/xen-pvgrub2
+  Works! I'm using a HVM installed iso!
+  This has /boot/grub/grub.cfg in its normal place.
+  */
+}
+
+fix(){
+  /*
+  This fixes missing: grub.cfg
+  https://askubuntu.com/questions/868839/why-is-grub-updating-menu-lst-but-not-grub-cfg
+  */
+  sudo apt-get install grub2
+}

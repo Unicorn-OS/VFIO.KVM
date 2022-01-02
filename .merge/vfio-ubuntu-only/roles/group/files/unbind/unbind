@@ -1,0 +1,5 @@
+#!/bin/bash
+
+addr='0000:00:01.0'
+
+echo $addr > /sys/bus/pci/drivers/pcieport/unbind

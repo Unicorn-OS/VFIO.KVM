@@ -1,0 +1,9 @@
+- index:
+  url:  https://docs.openstack.org/image-guide/obtain-images.html
+
+- Debian:
+  url: https://cdimage.debian.org/cdimage/openstack/
+  url1: https://wiki.debian.org/Cloud
+
+- Ubuntu:
+  url: https://cloud-images.ubuntu.com/

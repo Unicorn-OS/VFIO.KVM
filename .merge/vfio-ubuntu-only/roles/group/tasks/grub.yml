@@ -1,0 +1,8 @@
+---
+- name: Grub iommu
+  replace:
+    path: /etc/default/grub
+    regexp: 'GRUB_CMDLINE_LINUX_DEFAULT="intel_iommu=on quiet splash"'
+    replace: 'GRUB_CMDLINE_LINUX_DEFAULT="intel_iommu=on rd.driver.pre=vfio-pci quiet splash"'
+  notify:
+    - update grub

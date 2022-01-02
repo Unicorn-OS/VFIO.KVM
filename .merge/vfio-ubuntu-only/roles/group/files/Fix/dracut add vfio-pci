@@ -1,0 +1,7 @@
+#!/usr/bin/bash
+# Add so it loads before anything else and can take control!
+# [prime.](https://forum.level1techs.com/t/gpu-pass-through-vfio-pci-not-claiming-device-nvidia-intel/120843)
+
+# gh.doc: manpages.ubuntu.com/manpages/eoan/man8/dracut.8.html
+
+dracut --add-drivers vfio-pci

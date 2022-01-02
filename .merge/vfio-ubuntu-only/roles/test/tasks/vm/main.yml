@@ -1,0 +1,33 @@
+- name: debug through ansible.env
+  debug: var=ansible_env.HOME
+
+- name: desktop .iso's
+  file:
+    path: '{{ansible_env.HOME}}/.uni/cloud/desktop'
+    state: directory
+
+- name: OS for symlink
+  file:
+    path: '{{ansible_env.HOME}}/.uni/cloud/os'
+    state: directory
+
+
+- name: Sync test OS iso's
+  synchronize:
+    src: '{{ desktop }}'
+    dest: '{{ cloud }}/'
+
+# This needs to be a Loop! ________________________________________
+
+# https://stackoverflow.com/questions/45564899/extract-filename-from-file-result-in-ansible
+
+# - name: Loop symlink OS's
+#   file:
+#     src: '{{ item }}'
+#     dest: '{{ansible_env.HOME}}/.uni/cloud/os/'
+#     state: link
+#   with_fileglob: '{{cloud}}/desktop/*.iso'
+
+- debug:
+    msg: '{{ item.path | basename }}'
+  with_fileglob: '{{cloud}}/desktop/*.iso'

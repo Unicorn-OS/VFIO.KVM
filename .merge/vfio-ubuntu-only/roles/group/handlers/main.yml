@@ -1,0 +1,23 @@
+---
+- name: update grub
+  shell: update-grub
+
+- name: dracut regenerate
+  shell: 'dracut -f --kver `uname -r`'
+  register: dracut_log
+  notify:
+    - log dracut
+    - debug dracut
+    - replace initramfs
+
+- name: log dracut
+  blockinfile:
+    path: /home/me/log/dracut
+    block: '{{ dracut_log.stderr_lines | to_nice_json }}'
+    create: yes
+
+- name: debug dracut
+  debug:
+    var: dracut_log
+
+# - name: replace initramfs

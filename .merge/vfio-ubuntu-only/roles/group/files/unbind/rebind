@@ -1,0 +1,10 @@
+#!/bin/bash
+
+addr='0000:00:01.0'
+
+sysfs='/sys/bus/pci/devices/0000:00:01.0/iommu_group/devices/0000:00:01.0'
+
+realpath='/sys/devices/pci0000:00/0000:00:01.0/driver_override'
+echo "vfio-pci" > "$realpath"
+
+echo $addr > /sys/bus/pci/drivers/vfio-pci/bind

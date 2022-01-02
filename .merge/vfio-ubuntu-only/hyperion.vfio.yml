@@ -1,0 +1,12 @@
+---
+# enables VFIO passthrough for Hyperion
+- hosts: local
+  become: yes
+  become_method: sudo
+  roles:
+    - kvm
+    - vfio
+    - vfio-pci  # my Devices!
+#    - vfio-pci.grub
+    - virt-manager
+    # - unicloud # Bare minimum Unicloud features for testing VFIO!

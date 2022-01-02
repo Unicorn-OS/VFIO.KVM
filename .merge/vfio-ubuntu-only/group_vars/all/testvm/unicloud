@@ -1,0 +1,14 @@
+---
+home: '/home/{{ ansible_user }}'
+
+cloud: '{{ansible_env.HOME}}/.uni/cloud'
+
+todo_fix_become_in_unicloud: '/home/me/.uni/cloud'
+# cloud: '{{todo_fix_become_in_unicloud}}'
+
+desktop: '{{ansible_env.HOME}}/.uni/cloud/desktop'
+
+# OS
+manjaro: '{{desktop}}/manjaro-xfce-19.0.2-200311-linux54.iso'
+ubuntuLTS_desktop: '{{desktop}}/ubuntu-18.04.4-desktop-amd64.iso'
+fedora: '{{desktop}}/Fedora-Workstation-Live-x86_64-31-1.9.iso'

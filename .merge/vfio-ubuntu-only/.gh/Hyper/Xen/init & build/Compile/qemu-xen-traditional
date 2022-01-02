@@ -1,0 +1,7 @@
+git clone git://xenbits.xen.org/qemu-xen-traditional.git
+cd qemu-xen-traditional
+
+# Docs
+sudo apt-get install texi2html
+texi2html qemu-doc.texi
+xdg-open qemu-doc.html

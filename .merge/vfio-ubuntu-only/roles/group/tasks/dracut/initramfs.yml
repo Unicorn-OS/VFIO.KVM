@@ -1,0 +1,26 @@
+- name: set initramfs
+  set_fact:
+    kernel: '5.3.0-42-generic'
+    initramfs: 'initramfs-{{ kernel }}.img'
+    old: 'initrd.img-{{ kernel }}'
+
+- debug:
+    var: initramfs
+
+- name: stat the file
+  stat:
+    path: '/boot/{{ initramfs }}'
+  register: my_file
+
+# - name: hard link the file into directory
+#   file:
+#     src: /original/path/to/{{ item }}
+#     dest: /path/to/directory/{{ item }}
+#     state: hard
+#   when: my_file.stat.exists
+#
+# - name: Delete the original file
+#   file:
+#     path: /original/path/to/{{ item }}
+#     state: absent
+#   when: my_file.stat.exists
