@@ -1,0 +1,5 @@
+---
+- name: Install a list of packages
+  apt:
+    pkg:
+    - swtpm-tools
