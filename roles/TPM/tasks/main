@@ -3,3 +3,5 @@
   apt:
     pkg:
     - swtpm-tools
+
+# https://github.com/stefanberger/swtpm/issues/463
