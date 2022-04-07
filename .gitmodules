@@ -1,4 +1,3 @@
-[submodule "os-img"]
-	path = roles/os-img
-	url = git@gitlab.com:UniSocial.Net/UniCloud/Hyperion/os-img.git
-	branch = master
+[submodule ".this/depends/KVM.Hyperion"]
+	path = .this/depends/KVM.Hyperion
+	url = https://github.com/Unicorn-OS/KVM.Hyperion.git
