@@ -1,6 +1,0 @@
----
-# https://libguestfs.org/
-- name: Install libguestfs
-  apt:
-    pkg:
-    - libguestfs-tools

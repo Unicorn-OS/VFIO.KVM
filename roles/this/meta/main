@@ -9,6 +9,4 @@ dependencies:
 # - role: network/bridge
 
 ## Break
-# - role: tool/libguestfs
-# - role: tool/monitor
 # - role: vfio/allow_unsafe_interrupt

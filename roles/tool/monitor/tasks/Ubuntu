@@ -1,5 +1,0 @@
----
-- name: Install virt-top
-  apt:
-    pkg:
-    - virt-top
