@@ -1,7 +1,0 @@
----
-- name: start libvirtd
-  systemd:
-    name: libvirtd
-    state: started
-    enabled: yes
-  become: true

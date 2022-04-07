@@ -1,0 +1,11 @@
+---
+- hosts: net
+  vars:
+    hwd_overide: 'ASUSTeK ROG Strix'
+  roles:
+    - my/hw
+    - hwd/detect
+    - template/gpu
+    - template/gui
+    - this
+    # - test/run

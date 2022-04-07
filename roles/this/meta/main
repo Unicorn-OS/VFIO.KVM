@@ -1,0 +1,14 @@
+---
+# Start installing all roles One by one! Using conditions in roles, set by template/vars
+dependencies:
+- role: my
+- role: common
+- role: vfio/init
+- role: vfio-ids
+#- role: VFIO/load-early
+# - role: network/bridge
+
+## Break
+# - role: tool/libguestfs
+# - role: tool/monitor
+# - role: vfio/allow_unsafe_interrupt

@@ -1,4 +1,0 @@
----
-dependencies:
-  - role: Favorite/Photos
-  - role: Favorite/Sources

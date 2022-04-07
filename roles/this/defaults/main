@@ -1,0 +1,12 @@
+---
+vfio:
+  enable: false
+  allow_unsafe_interrupt: false
+
+ids:
+  bind: false
+  blacklist: false
+
+fix:
+  load_early: false
+  acs_override: false
