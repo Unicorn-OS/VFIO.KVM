@@ -1,4 +1,11 @@
 ---
-earlier_os: ['18', '19', 'bionic']
+vfio:
+  enable: true
 
-later_os: ['20']
+gpu:
+  enable: true
+  virtio: false
+
+ids:
+  bind: true
+  blacklist: true

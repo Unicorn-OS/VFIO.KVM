@@ -1,0 +1,7 @@
+---
+detected:
+  gpu0: '{{GTX_730}}'
+
+vfio_ids: '{{detected.gpu0}}'
+
+all_vfio_devices: "{{vfio_ids}}"

@@ -1,4 +1,4 @@
-roles/.my/feature/vars
+roles/.my/*/vars
 
 .this/inventory
 /ansible.cfg

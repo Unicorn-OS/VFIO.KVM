@@ -13,8 +13,9 @@ link_template(){
   ln -srf .this/uni .
 }
 
-my_optional_feature(){
+my_example(){
   ln -srf roles/.my/feature/vars.example roles/.my/feature/vars
+  ln -srf roles/.my/hw/vars.example roles/.my/hw/vars
 }
 
 checkLocation(){

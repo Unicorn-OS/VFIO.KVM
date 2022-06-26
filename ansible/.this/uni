@@ -1,11 +1,11 @@
 ---
 - hosts: node
   roles:
+    - hwdb
     - .my/hw
-
-    # - template/gpu
-    - role: vfio/init
-    # - role: vfio-ids
+    - this
+    - vfio/init
+    - vfio-ids
 
 
     # - template/gui

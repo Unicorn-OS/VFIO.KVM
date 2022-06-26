@@ -1,5 +1,0 @@
----
-detected:
-  gpu0: '{{GTX_1060}}'
-
-vfio_ids: '{{detected.gpu0}}'
