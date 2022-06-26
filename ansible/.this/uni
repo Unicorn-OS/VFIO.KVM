@@ -1,7 +1,5 @@
 ---
 - hosts: node
-  vars:
-    manual_set: 'ASUSTeK ROG Strix'
   roles:
     - my/hw
     - hwd/detect
