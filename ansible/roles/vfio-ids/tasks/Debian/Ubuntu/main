@@ -39,6 +39,3 @@
     - 'update initramfs {{ansible_os_family}}'
   become: true
   when: ids.blacklist
-
-- debug:
-    msg: "What is {{ids.blacklist}} in {{ansible_distribution_release}}"
