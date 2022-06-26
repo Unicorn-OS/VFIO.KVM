@@ -1,0 +1,6 @@
+---
+- include_tasks: '{{manual_set}}'
+  when: manual_set is defined
+
+# 'ASUSTeK ROG Strix'
+# 'Alienware Aurora R11'
