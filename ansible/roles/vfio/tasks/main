@@ -1,0 +1,4 @@
+---
+- include_role:
+    name: vfio/init
+  # when: vfio.enable

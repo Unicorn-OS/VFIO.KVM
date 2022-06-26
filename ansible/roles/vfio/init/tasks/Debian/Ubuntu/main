@@ -1,11 +1,10 @@
 ---
 - name: OVMF firmware
-  become: yes
-  apt:
-    name: "{{ packages }}"
-  vars:
-    packages:
+  ansible.builtin.apt:
+    pkg:
     - ovmf
+  become: yes
+
 
 - name: /etc/modules
   become: yes

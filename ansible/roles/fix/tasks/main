@@ -1,0 +1,19 @@
+---
+# Fixes
+- include_role:
+    name: fix/kernel/acs_override_pcie
+  when: fix.kernel.acs_override_pcie
+
+# alt:
+- include_role:
+    name: fix/kernel/acs_override_patch
+  when: fix.kernel.acs_override_patch
+#______________________________________
+
+- include_role:
+    name: fix/vfio/load_early
+  when: fix.vfio.load_early
+
+- include_role:
+    name: fix/vfio/allow_unsafe_interrupt
+  when: fix.vfio.allow_unsafe_interrupt

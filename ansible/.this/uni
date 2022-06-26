@@ -1,9 +1,13 @@
 ---
 - hosts: node
   roles:
-    - my/hw
-    - hwd/detect
+    - .my/hw
+
     # - template/gpu
+    - role: vfio/init
+    # - role: vfio-ids
+
+
     # - template/gui
     # - this
     # - test/run

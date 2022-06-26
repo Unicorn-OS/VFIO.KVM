@@ -1,0 +1,7 @@
+---
+fix:
+  vfio:
+    load_early: false
+    allow_unsafe_interrupt: false
+  kernel:
+    acs_override: false
