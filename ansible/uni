@@ -1,5 +1,5 @@
 ---
-- hosts: net
+- hosts: node
   vars:
     hwd_overide: 'ASUSTeK ROG Strix'
   roles:

@@ -1,1 +1,1 @@
-Advanced Hypervisor device & PCI passthrough!
+Hypervisor device & PCI passthrough
