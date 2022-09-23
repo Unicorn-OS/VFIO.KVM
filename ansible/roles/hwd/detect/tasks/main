@@ -1,6 +1,0 @@
----
-- include_tasks: '{{hwd_overide}}'
-  when: hwd_overide is defined
-
-# 'ASUSTeK ROG Strix'
-# 'Alienware Aurora R11'
