@@ -1,7 +1,7 @@
 This works!
 
-- Use GPU + QXL
-- Using Windows default AMD Drivers. No Radeon Drivers installed!
+- display: GPU + QXL
+- driver: Using Windows default AMD Drivers. Radeon Drivers not installed yet!
 - sound: works
 - sound channel: spice
 - sound device: ich9
