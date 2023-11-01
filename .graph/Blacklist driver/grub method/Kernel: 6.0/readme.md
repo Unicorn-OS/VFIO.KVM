@@ -17,6 +17,8 @@ Quote:
 ># update-initramfs -u -k 6.2.0-26-generic
 >```
 https://forum.level1techs.com/t/linux-kernel-6-seems-to-be-incompatible-with-the-vfio-pci-module-needed-for-pci-passthrough/190039/37
+---
+https://hardcoded.info/post/2023/03/04/pci-passthrough-using-vfio-pci-for-linux-kernel-version-6-solution/
 
 
 # grub method
