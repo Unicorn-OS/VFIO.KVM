@@ -3,7 +3,7 @@
 import subprocess
 
 def getAllPCI():
-    result = subprocess.run(['lspci'], stdout=subprocess.PIPE, stderr=subprocess.PIPE)
+    result = subprocess.run(['lspci', '-nn'], stdout=subprocess.PIPE, stderr=subprocess.PIPE)
     output = result.stdout.decode('utf-8')
     all = output.splitlines()
     return all
@@ -24,18 +24,22 @@ def getGPU():
 def countGPUs():
     return len(getGPU())
 
-def getBus(gpu_num=0):
+def getBus(gpu_num = 0):
     gpu = getGPU()
     if countGPUs() >= gpu_num:
-        print(gpu[gpu_num][0:7])
+        return gpu[gpu_num][0:7]
     else:
         try:
             print(x)
         except:
             print("GPU Not found!")
 
+def getHexBus(gpu_num = 0):
+    print(getGPU()[gpu_num])
+
 def main():
-    getBus(1)
+    print(getBus(1))
+    getHexBus(1)
 
 main()
 
