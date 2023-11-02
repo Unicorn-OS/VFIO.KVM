@@ -1,0 +1,8 @@
+- name: Setup VFIO on node
+  hosts: localhost
+  vars:
+    ansible_become_password: u
+    optional_packages: true
+  roles:
+    - Detect PCI devices
+    - VFIO

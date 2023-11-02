@@ -1,0 +1,4 @@
+- include_tasks: Graphics/main.yml
+  when: graphics
+
+# from: https://www.heiko-sieger.info/blacklisting-graphics-driver/
