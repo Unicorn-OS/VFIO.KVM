@@ -1,19 +1,30 @@
-#!/usr/bin/python3
-
 import re
 import subprocess
-
 def getAllPCI():
     result = subprocess.run(['lspci', '-nn'], stdout=subprocess.PIPE, stderr=subprocess.PIPE)
     output = result.stdout.decode('utf-8')
     all = output.splitlines()
     return all
 
-def isGPU(line):
-    if line.find("VGA") > 0:
+def isAudio(device):
+    if device.find("Audio device") > 0:
         return True
     else:
         return False
+
+def isGPU(device):
+    if device.find("VGA") > 0:
+        return True
+    else:
+        return False
+
+def getPCIDevice(bus):
+    all = getAllPCI()
+    device = ""
+    for line in all:
+        if line.find(bus) >= 0:
+            device = line
+    return device
 
 def getGPU():
     all = getAllPCI()
@@ -35,17 +46,34 @@ def getBus(gpu_num = 0):
         except:
             print("GPU Not found!")
 
-def getBusHex(gpu_num = 0):
-    return getGPU()[gpu_num]
+def toHex(bus):
+    regex = "(?<=\[)....:....(?=\])"
+    pattern = re.compile(rf"{regex}")
 
-def tryRegex():
-    line = getGPU(1)
-    regex = "(?<=\[)....:....(?=\])"gm
-    print()
+    lspci = getPCIDevice(bus)
+    bushex = pattern.findall(lspci)
+    return bushex[0]
+
+def getAudioBus(gpu_num = 0):
+    gpu_bus = getBus(gpu_num)
+    audio_bus = gpu_bus[:6] + str(int(gpu_bus[6]) + 1)
+
+    device = getPCIDevice(audio_bus)
+    if isAudio(device):
+        return audio_bus
+    else:
+        return False
+
+def gpuString(gpu_num):
+    gpu = toHex(getBus(gpu_num))
+    audio = toHex(getAudioBus(gpu_num))
+    return f"{gpu},{audio}"
+
+def _test():
+    print(getBus(1))
 
 def main():
-    print(getBus(1))
-    getBusHex(1)
+    print(gpuString(1))
 
 main()
 
@@ -53,4 +81,4 @@ main()
 # - https://www.heiko-sieger.info/blacklisting-graphics-driver/
 # - https://www.w3docs.com/snippets/python/running-shell-command-and-capturing-the-output.html
 # - https://stackoverflow.com/questions/13332268/how-to-use-subprocess-command-with-pipes
-# quote: "Instead, create the ps and grep processes separately, and pipe the output from one into the other, like so:"
+# - https://youtu.be/AEE9ecgLgdQ
