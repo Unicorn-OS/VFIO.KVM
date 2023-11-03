@@ -1,5 +1,6 @@
 #!/usr/bin/python3
 
+import re
 import subprocess
 
 def getAllPCI():
@@ -34,12 +35,17 @@ def getBus(gpu_num = 0):
         except:
             print("GPU Not found!")
 
-def getHexBus(gpu_num = 0):
-    print(getGPU()[gpu_num])
+def getBusHex(gpu_num = 0):
+    return getGPU()[gpu_num]
+
+def tryRegex():
+    line = getGPU(1)
+    regex = "(?<=\[)....:....(?=\])"gm
+    print()
 
 def main():
     print(getBus(1))
-    getHexBus(1)
+    getBusHex(1)
 
 main()
 
