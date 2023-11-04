@@ -101,7 +101,7 @@ def _test():
 def run_module():
     module_args = dict(
         card_num=dict(type='int', required=False, default=0),
-        make=dict(type='str', required=True)
+        make=dict(type='str', required=False, default="any")
     )
 
     # seed the result dict in the object

@@ -138,7 +138,7 @@ def _test():
 def run_module():
     module_args = dict(
         gpu_num=dict(type='int', required=False, default=1),
-        name=dict(type='str', required=True),
+        make=dict(type='str', required=False, default="any"),
         audio=dict(type='bool', required=False, default=True)
     )
 
@@ -183,12 +183,6 @@ def run_module():
     # use whatever logic you need to determine whether or not this module
     # made any modifications to your target
     result['changed'] = False
-
-    # during the execution of the module, if there is an exception or a
-    # conditional state that effectively causes a failure, run
-    # AnsibleModule.fail_json() to pass in the message and the result
-    if module.params['name'] == 'fail me':
-        module.fail_json(msg='You requested this to fail', **result)
 
     # in the event of a successful module execution, you will want to
     # simple AnsibleModule.exit_json(), passing the key/value results

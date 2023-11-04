@@ -2,9 +2,10 @@
   # hosts: localhost
   hosts: node
   vars:
+    debug: True
     ansible_become_password: u
     optional_packages: true
   roles:
     - Get hardware/GPU
-    # - Get hardware/HDMI Catpure Card
+    - Get hardware/HDMI Capture Card
     - VFIO

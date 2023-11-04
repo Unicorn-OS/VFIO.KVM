@@ -6,4 +6,4 @@
 - name: dump test output
   debug:
     msg: "{{ capture_card }}"
-    # msg: '{{ vfio.pci_string }} {{vfio.gpu_type}} {{vfio.blacklist_driver}}'
+  when: debug

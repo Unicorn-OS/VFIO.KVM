@@ -3,14 +3,17 @@
 
 - name: Get a GPU
   get_gpu:
-    name: "{{name}}"
     audio: true
-  register: vfio
+  register: gpu
+
+- name: Setting host facts using complex arguments
+  ansible.builtin.set_fact:
+    vfio_pci_string: "{{ gpu.pci_string }}"
 
 - name: dump test output
   debug:
-    msg: "{{ vfio }}"
-    # msg: '{{ vfio.pci_string }} {{vfio.gpu_type}} {{vfio.blacklist_driver}}'
+    msg: "{{ gpu }}"
+    # msg: '{{ gpu.pci_string }} {{gpu.gpu_type}} {{gpu.blacklist_driver}}'
   when: debug
 
 # from: https://www.heiko-sieger.info/blacklisting-graphics-driver/
