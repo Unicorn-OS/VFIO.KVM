@@ -1,0 +1,10 @@
+- name: Setup VFIO on node
+  hosts: node
+  vars:
+    ansible_become_password: u
+    optional_packages: true
+  roles:
+    - Get PCI info
+    - Hw/HDMI Capture Card/Elgato
+    # - VFIO
+    # - .test

@@ -1,0 +1,9 @@
+- name: Get a HDMI Capture Card
+  get_HDMI_capture_card:
+    make: 'Elgato'
+  register: capture_card
+
+- name: dump test output
+  debug:
+    msg: "{{ capture_card }}"
+    # msg: '{{ vfio.gpu_string }} {{vfio.gpu_type}} {{vfio.blacklist_driver}}'
