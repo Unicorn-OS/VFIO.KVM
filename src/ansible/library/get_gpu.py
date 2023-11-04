@@ -151,7 +151,7 @@ def run_module():
         changed=False,
         gpu='',
         audio='',
-        gpu_string='',
+        pci_string='',
         gpu_type =''
     )
 
@@ -176,7 +176,7 @@ def run_module():
 
     result['gpu'] = toHex(getBus(gpu_num))
     result['audio'] = toHex(getAudioBus(gpu_num))
-    result['gpu_string'] = gpuString(gpu_num)
+    result['pci_string'] = gpuString(gpu_num)
     result['gpu_type'] = gpuType(gpu_num)
     result['blacklist_driver'] = blacklistDriver(gpu_num)
 

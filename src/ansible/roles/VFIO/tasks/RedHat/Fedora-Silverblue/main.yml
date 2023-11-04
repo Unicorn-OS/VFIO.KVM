@@ -30,7 +30,7 @@
 - name: Blacklist gpu
   ansible.builtin.shell: >
     rpm-ostree kargs
-    --append-if-missing="vfio-pci.ids={{ vfio.gpu_string }}"
+    --append-if-missing="vfio-pci.ids={{ vfio.pci_string }}"
   args:
     creates: "{{ log_blacklist }}"
   notify:

@@ -42,25 +42,25 @@ def getPCIDevice(bus):
             device = line
     return device
 
-def getGPU():
+def getCaptureCard():
     all = getAllPCI()
-    gpus = []
+    cards = []
     for line in all:
-        if isElgato(line): gpus.append(line)
-    return gpus
+        if isElgato(line): cards.append(line)
+    return cards
 
-def countGPUs():
-    return len(getGPU())   
+def countCards():
+    return len(getCaptureCard())   
 
 def getBus(card_num = 0):
-    gpu = getGPU()
-    if countGPUs() >= card_num:
-        return gpu[card_num][0:7]
+    card = getCaptureCard()
+    if countCards() >= card_num:
+        return card[card_num][0:7]
     else:
         try:
             print(x)
         except:
-            print("GPU Not found!")
+            print("Card Not found!")
 
 def toHex(bus):
     # regex = "(?<=\[)....:....(?=\])"
@@ -75,17 +75,17 @@ def pciString(card_num):
     pci = toHex(getBus(card_num))
     return f"{pci}"
 
-def gpuType(card_num = 0):
-    elgato_4k = "Elgato"
-    nvidia = "GeForce"
-    intel = "Intel"
+def cardType(card_num = 0):
+    elgato_4k = "YUAN High-Tech Development Co."
+    todo = "todo"
+    intel = "todo1"
     
-    gpu_bus = getBus(card_num)
-    lspci = getPCIDevice(gpu_bus)
+    pci_bus = getBus(card_num)
+    lspci = getPCIDevice(pci_bus)
     
     if lspci.find(elgato_4k) >= 0:
         card_type = "Elgato"
-    elif lspci.find(nvidia) >= 0:
+    elif lspci.find(todo) >= 0:
         card_type = "Nvidia"
     else:
         card_type = "none"
@@ -97,61 +97,50 @@ def _test():
 # def main():
 #     print(pciString(1))
 
-# main()
-
 #----------------------------------------------------
 def run_module():
     module_args = dict(
-        pci_num=dict(type='int', required=False, default=1),
+        card_num=dict(type='int', required=False, default=0),
         make=dict(type='str', required=True)
     )
 
     # seed the result dict in the object
-    # we primarily care about changed and state
-    # changed is if this module effectively modified the target
-    # state will include any data that you want your module to pass back
-    # for consumption, for example, in a subsequent task
     result = dict(
         changed=False,
-        gpu='',
+        pci_bus='',
+        pci_hex='',
         pci_string='',
+        card_type=''
     )
 
     # the AnsibleModule object will be our abstraction working with Ansible
-    # this includes instantiation, a couple of common attr would be the
-    # args/params passed to the execution, as well as if the module
-    # supports check mode
     module = AnsibleModule(
         argument_spec=module_args,
         supports_check_mode=True
     )
 
     # if the user is working with this module in only check mode we do not
-    # want to make any changes to the environment, just return the current
-    # state with no modifications
     if module.check_mode:
         module.exit_json(**result)
 
     # manipulate or modify the state as needed (this is going to be the
-    # part where your module will do what it needs to do)
     card_num = module.params['card_num']
 
-    result['pci'] = toHex(getBus(card_num))
+    result['pci_bus'] = getBus(card_num)
+    result['pci_hex'] = toHex(getBus(card_num))
     result['pci_string'] = pciString(card_num)
-    result['card_type'] = gpuType(card_num)
+    result['card_type'] = cardType(card_num)
 
     # use whatever logic you need to determine whether or not this module
-    # made any modifications to your target
     result['changed'] = False
 
     # in the event of a successful module execution, you will want to
-    # simple AnsibleModule.exit_json(), passing the key/value results
     module.exit_json(**result)
 
 
-# def main():
-#     run_module()
+def main():
+    run_module()
 
 
-# if __name__ == '__main__':
-#     main()
+if __name__ == '__main__':
+    main()
