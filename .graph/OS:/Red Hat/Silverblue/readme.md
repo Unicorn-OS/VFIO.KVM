@@ -1,0 +1,1 @@
+https://discussion.fedoraproject.org/t/change-grub-configuration-and-apply-in-silverblue/74594/5

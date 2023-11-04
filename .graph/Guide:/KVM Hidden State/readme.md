@@ -9,3 +9,7 @@ Video card drivers by AMD incorporate very basic virtual machine detection targe
 
 If this is the case, it is required to modify the reported Hyper-V vendor ID:
 "
+
+# index:
+
+https://www.reddit.com/r/VFIO/comments/fsn9r4/windows_says_virtual_machine_yes_even_though_kvm/
