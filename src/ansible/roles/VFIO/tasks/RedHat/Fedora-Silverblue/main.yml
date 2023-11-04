@@ -1,3 +1,52 @@
+# works:
+# - https://github.com/FilBot3/fedora-silverblue-gpu-passthrough
 
-#works:
-#- https://github.com/FilBot3/fedora-silverblue-gpu-passthrough
+- name: Preliminary Checks
+  ansible.builtin.shell: >
+    rpm-ostree kargs
+    --delete-if-present=rd.driver.blacklist=nouveau
+    --delete-if-present=modprobe.blacklist=nouveau
+    --delete-if-present=nvidia-drm.modeset=1
+  args:
+    creates: "{{ log_pre }}"
+  notify:
+  - Reboot
+  - Log pre
+  become: true
+
+- name: Ensure CPU has IOMMU enabled
+  ansible.builtin.shell: >
+    rpm-ostree kargs
+    --append-if-missing="{{ iommu_type }}=on"
+    --append-if-missing="iommu=pt"
+    --append-if-missing="rd.driver.pre=vfio_pci"
+  args:
+    creates: "{{ log_iommu }}"
+  notify:
+  - Reboot
+  - Log iommu
+  become: true
+
+- name: Blacklist gpu
+  ansible.builtin.shell: >
+    rpm-ostree kargs
+    --append-if-missing="vfio-pci.ids={{ vfio.gpu_string }}"
+  args:
+    creates: "{{ log_blacklist }}"
+  notify:
+  - Reboot
+  - Log blacklist
+  become: true
+
+- name: perform a dracut to make sure the initramfs has the Kernel module loaded
+  ansible.builtin.shell: >
+    rpm-ostree initramfs
+    --enable
+    --arg="--add-drivers"
+    --arg="vfio-pci"
+  args:
+    creates: "{{ log_finished }}"
+  notify:
+  - Reboot
+  - Log finished
+  become: true

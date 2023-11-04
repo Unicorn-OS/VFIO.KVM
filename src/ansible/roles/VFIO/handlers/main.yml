@@ -1,3 +1,32 @@
 - name: Update grub
   ansible.builtin.shell: grub2-mkconfig -o /etc/grub2-efi.cfg
   become: true
+
+- name: Reboot node
+  ansible.builtin.reboot:
+  when: not ansible_connection == 'local'
+
+- name: Reboot
+  debug:
+    msg: "{{'You must reboot manually! As you are setting up localhost' if ansible_connection == 'local', else 'Rebooting ...' }}"
+  notify: Reboot node
+
+- name: Log pre
+  ansible.builtin.file:
+    path: "{{ log_pre }}"
+    state: touch
+
+- name: Log iommu
+  ansible.builtin.file:
+    path: "{{ log_iommu }}"
+    state: touch
+
+- name: Log blacklist
+  ansible.builtin.file:
+    path: "{{ log_blacklist }}"
+    state: touch
+
+- name: Log finished
+  ansible.builtin.file:
+    path: "{{ log_finished }}"
+    state: touch
