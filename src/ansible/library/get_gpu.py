@@ -69,7 +69,7 @@ def getBus(gpu_num = 0):
             print("GPU Not found!")
 
 def toHex(bus):
-    regex = "(?<=\[)....:....(?=\])"
+    regex = r"(?<=\[)....:....(?=\])"
     pattern = re.compile(rf"{regex}")
 
     lspci = getPCIDevice(bus)

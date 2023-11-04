@@ -63,7 +63,8 @@ def getBus(card_num = 0):
             print("GPU Not found!")
 
 def toHex(bus):
-    regex = "(?<=\[)....:....(?=\])"
+    # regex = "(?<=\[)....:....(?=\])"
+    regex = r"(?<=\[)....:....(?=\])"
     pattern = re.compile(rf"{regex}")
 
     lspci = getPCIDevice(bus)
@@ -102,7 +103,7 @@ def _test():
 def run_module():
     module_args = dict(
         pci_num=dict(type='int', required=False, default=1),
-        make=dict(type='str', required=True),
+        make=dict(type='str', required=True)
     )
 
     # seed the result dict in the object
@@ -136,7 +137,6 @@ def run_module():
     card_num = module.params['card_num']
 
     result['pci'] = toHex(getBus(card_num))
-    result['audio'] = toHex(getAudioBus(card_num))
     result['pci_string'] = pciString(card_num)
     result['card_type'] = gpuType(card_num)
 
@@ -144,20 +144,14 @@ def run_module():
     # made any modifications to your target
     result['changed'] = False
 
-    # during the execution of the module, if there is an exception or a
-    # conditional state that effectively causes a failure, run
-    # AnsibleModule.fail_json() to pass in the message and the result
-    if module.params['name'] == 'fail me':
-        module.fail_json(msg='You requested this to fail', **result)
-
     # in the event of a successful module execution, you will want to
     # simple AnsibleModule.exit_json(), passing the key/value results
     module.exit_json(**result)
 
 
-def main():
-    run_module()
+# def main():
+#     run_module()
 
 
-if __name__ == '__main__':
-    main()
+# if __name__ == '__main__':
+#     main()
