@@ -8,7 +8,7 @@
 
 - name: Reboot
   debug:
-    msg: "{{'You must reboot manually! As you are setting up localhost' if ansible_connection == 'local', else 'Rebooting ...' }}"
+    msg: "{{'You must reboot manually! As you are setting up localhost' if ansible_connection == 'local' else 'Rebooting ...' }}"
   notify: Reboot node
 
 - name: Log pre

@@ -1,0 +1,3 @@
+debug: false
+name: Radeon
+gpu_num: 1

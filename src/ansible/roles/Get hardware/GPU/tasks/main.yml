@@ -1,0 +1,16 @@
+- debug:
+    msg: Detect Graphics Cards
+
+- name: Get a GPU
+  get_gpu:
+    name: "{{name}}"
+    audio: true
+  register: vfio
+
+- name: dump test output
+  debug:
+    msg: "{{ vfio }}"
+    # msg: '{{ vfio.pci_string }} {{vfio.gpu_type}} {{vfio.blacklist_driver}}'
+  when: debug
+
+# from: https://www.heiko-sieger.info/blacklisting-graphics-driver/

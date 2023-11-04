@@ -1,8 +1,10 @@
 - name: Setup VFIO on node
-  hosts: localhost
+  # hosts: localhost
+  hosts: node
   vars:
     ansible_become_password: u
     optional_packages: true
   roles:
-    - Get PCI info
+    - Get hardware/GPU
+    # - Get hardware/HDMI Catpure Card
     - VFIO
