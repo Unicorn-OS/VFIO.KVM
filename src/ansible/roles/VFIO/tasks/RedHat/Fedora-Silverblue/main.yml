@@ -1,2 +1,15 @@
 - debug:
     msg: "Hello Silverblue!"
+
+- name: add intel_iommu to grub
+  ansible.builtin.lineinfile:
+    path: /etc/default/grub
+    regexp: '^GRUB_CMDLINE_LINUX="*'
+    line: 'GRUB_CMDLINE_LINUX="rhgb quiet rd.driver.blacklist={{ vfio.blacklist_driver }} modprobe.blacklist={{ vfio.blacklist_driver }} video=efifb:off intel_iommu=on rd.driver.pre=vfio-pci kvm.ignore_msrs=1 vfio-pci.ids={{ vfio.gpu_string }}"'
+  when: ansible_processor[1] == "GenuineIntel"
+  notify: Update grub
+  become: true
+
+#from:
+#- https://gist.github.com/paul-vd/5328d8eb2c626dff36ee143da2e85179
+#- https://discussion.fedoraproject.org/t/change-grub-configuration-and-apply-in-silverblue/74594/5

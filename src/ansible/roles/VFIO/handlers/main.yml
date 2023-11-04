@@ -1,0 +1,3 @@
+- name: Update grub
+  ansible.builtin.shell: grub2-mkconfig -o /etc/grub2-efi.cfg
+  become: true

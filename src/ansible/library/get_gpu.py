@@ -56,7 +56,7 @@ def getGPU():
     return gpus
 
 def countGPUs():
-    return len(getGPU())
+    return len(getGPU())   
 
 def getBus(gpu_num = 0):
     gpu = getGPU()
@@ -91,6 +91,34 @@ def gpuString(gpu_num):
     audio = toHex(getAudioBus(gpu_num))
     return f"{gpu},{audio}"
 
+def gpuType(gpu_num = 0):
+    amd = "Radeon"
+    nvidia = "Nvidia"
+    intel = "Intel"
+    
+    gpu_bus = getBus(gpu_num)
+    lspci = getPCIDevice(gpu_bus)
+    
+    if lspci.find(amd) >= 0:
+        gpu_type = "AMD"
+    elif lspci.find(nvidia) >= 0:
+        gpu_type = "Nvidia"
+    else:
+        gpu_type = "none"
+    return gpu_type    
+
+def blacklistDriver(gpu_num = 0):
+    gpu_type = gpuType(gpu_num)
+    match gpu_type:
+        case "AMD":
+            blacklist = "amdgpu"
+        case "Nvidia":
+            blacklist = "nouveau"
+        case _:
+            blacklist = ""
+    
+    return blacklist
+
 def _test():
     print(getBus(1))
 
@@ -104,6 +132,7 @@ def _test():
 # - https://www.w3docs.com/snippets/python/running-shell-command-and-capturing-the-output.html
 # - https://stackoverflow.com/questions/13332268/how-to-use-subprocess-command-with-pipes
 # - https://youtu.be/AEE9ecgLgdQ
+# - https://gist.github.com/paul-vd/5328d8eb2c626dff36ee143da2e85179
 
 #----------------------------------------------------
 def run_module():
@@ -122,7 +151,8 @@ def run_module():
         changed=False,
         gpu='',
         audio='',
-        gpu_string=''
+        gpu_string='',
+        gpu_type =''
     )
 
     # the AnsibleModule object will be our abstraction working with Ansible
@@ -147,6 +177,8 @@ def run_module():
     result['gpu'] = toHex(getBus(gpu_num))
     result['audio'] = toHex(getAudioBus(gpu_num))
     result['gpu_string'] = gpuString(gpu_num)
+    result['gpu_type'] = gpuType(gpu_num)
+    result['blacklist_driver'] = blacklistDriver(gpu_num)
 
     # use whatever logic you need to determine whether or not this module
     # made any modifications to your target

@@ -1,0 +1,1 @@
+https://www.server-world.info/en/note?os=Debian_12&p=kvm&f=13

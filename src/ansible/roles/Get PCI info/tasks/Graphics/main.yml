@@ -9,4 +9,5 @@
 
 - name: dump test output
   debug:
-    msg: '{{ vfio.gpu_string }}'
+    msg: "{{ vfio }}"
+    # msg: '{{ vfio.gpu_string }} {{vfio.gpu_type}} {{vfio.blacklist_driver}}'

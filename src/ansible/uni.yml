@@ -4,5 +4,5 @@
     ansible_become_password: u
     optional_packages: true
   roles:
-    - Get PCI device
+    - Get PCI info
     - VFIO
