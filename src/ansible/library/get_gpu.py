@@ -93,7 +93,7 @@ def gpuString(gpu_num):
 
 def gpuType(gpu_num = 0):
     amd = "Radeon"
-    nvidia = "Nvidia"
+    nvidia = "GeForce"
     intel = "Intel"
     
     gpu_bus = getBus(gpu_num)

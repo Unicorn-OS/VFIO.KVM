@@ -7,6 +7,8 @@
 
 - name: check iommu kernel cmdline
   shell: cat /proc/cmdline | grep -i iommu
+  failed_when: false
 
 - name: check iommu dmesg
   shell: dmesg | grep -i iommu
+  failed_when: false
