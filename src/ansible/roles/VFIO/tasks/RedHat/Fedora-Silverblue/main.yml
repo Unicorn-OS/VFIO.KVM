@@ -5,7 +5,7 @@
   ansible.builtin.lineinfile:
     path: /etc/default/grub
     regexp: '^GRUB_CMDLINE_LINUX="*'
-    line: 'GRUB_CMDLINE_LINUX="rhgb quiet rd.driver.blacklist={{ vfio.blacklist_driver }} modprobe.blacklist={{ vfio.blacklist_driver }} video=efifb:off intel_iommu=on rd.driver.pre=vfio-pci kvm.ignore_msrs=1 vfio-pci.ids={{ vfio.gpu_string }}"'
+    line: 'GRUB_CMDLINE_LINUX="rhgb quiet rd.driver.blacklist={{ vfio.blacklist_driver }} modprobe.blacklist={{ vfio.blacklist_driver }} video=efifb:off intel_iommu=on {{ "iommu=pt " if iommu_pt }}rd.driver.pre=vfio-pci kvm.ignore_msrs=1 vfio-pci.ids={{ vfio.gpu_string }}"'
   when: ansible_processor[1] == "GenuineIntel"
   notify: Update grub
   become: true
