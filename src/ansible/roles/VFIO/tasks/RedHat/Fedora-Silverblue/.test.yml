@@ -1,0 +1,2 @@
+- debug:
+    msg: "Hello {{ vfio_pci_string }}"

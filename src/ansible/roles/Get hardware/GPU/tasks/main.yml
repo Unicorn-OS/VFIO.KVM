@@ -4,16 +4,31 @@
 - name: Get a GPU
   get_gpu:
     audio: true
-  register: gpu
+  register: this_pci
 
-- name: Setting host facts using complex arguments
+- name: Make a global GPU variable (from this_pci)
   ansible.builtin.set_fact:
-    vfio_pci_string: "{{ gpu.pci_string }}"
+    gpu: this_pci
 
+- name: Append pci_string
+  ansible.builtin.set_fact:
+    vfio_pci_string: "{{vfio_pci_string + ',' + this_pci.pci_string }}"
+    cacheable: True
+  when: vfio_pci_string != ""
+
+- name: Set pci_string (if empty)
+  ansible.builtin.set_fact:
+    vfio_pci_string: "{{this_pci.pci_string }}"
+    cacheable: True
+  when: vfio_pci_string == ""
+
+
+## Molecule
 - name: dump test output
   debug:
-    msg: "{{ gpu }}"
-    # msg: '{{ gpu.pci_string }} {{gpu.gpu_type}} {{gpu.blacklist_driver}}'
+    msg: "{{ this_pci }}"
+    # msg: '{{ this_pci.pci_string }} {{this_pci.gpu_type}} {{this_pci.blacklist_driver}}'
   when: debug
+
 
 # from: https://www.heiko-sieger.info/blacklisting-graphics-driver/
