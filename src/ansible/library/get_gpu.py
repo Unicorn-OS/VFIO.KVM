@@ -1,5 +1,8 @@
 #!/usr/bin/python
 
+# Todo: Currently only returns 1 GPU!
+# Feature - Let user set the number of GPUs to return, and generate a multi-gpu pci_string!
+
 from __future__ import (absolute_import, division, print_function)
 __metaclass__ = type
 

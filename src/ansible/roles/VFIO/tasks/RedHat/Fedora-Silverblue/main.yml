@@ -4,6 +4,16 @@
 - debug:
     msg: "Home: {{ log_finished }}"
 
+- name: Remove old devices
+  ansible.builtin.shell: >
+    rpm-ostree kargs
+    --delete-if-present="vfio-pci.ids"
+  args:
+    creates: "{{ log_blacklist }}"
+  when: overwrite_pciids
+  become: true
+
+#---
 - name: Preliminary Checks
   ansible.builtin.shell: >
     rpm-ostree kargs
@@ -40,6 +50,9 @@
   - Log blacklist
   - Reboot
   become: true
+
+# Use Replace instead:
+# rpm-ostree kargs --replace=KEY=VALUE=NEWVALUE
 
 - name: perform a dracut to make sure the initramfs has the Kernel module loaded
   ansible.builtin.shell: >

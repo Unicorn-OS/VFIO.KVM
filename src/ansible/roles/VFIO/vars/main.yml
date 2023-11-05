@@ -8,3 +8,5 @@ log_pre: "{{ _log_dir }}/preliminary.log"
 log_iommu: "{{ _log_dir }}/iommu.log"
 log_blacklist: "{{ _log_dir }}/blacklist.log"
 log_finished: "{{ _log_dir }}/finished.log"
+
+overwrite_pciids: True # Overwrite pciids
