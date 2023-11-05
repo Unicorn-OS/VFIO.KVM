@@ -13,22 +13,10 @@
   changed_when: true
   notify: Reboot node
 
-- name: Log pre
-  ansible.builtin.file:
-    path: "{{ log_pre }}"
-    state: touch
-
-- name: Log iommu
-  ansible.builtin.file:
-    path: "{{ log_iommu }}"
-    state: touch
-
-- name: Log blacklist
-  ansible.builtin.file:
-    path: "{{ log_blacklist }}"
-    state: touch
-
-- name: Log finished
-  ansible.builtin.file:
-    path: "{{ log_finished }}"
-    state: touch
+- name: rpm-ostree initramfs # perform a dracut to make sure the initramfs has the Kernel module loaded
+  ansible.builtin.shell: >
+    rpm-ostree initramfs
+    --enable
+    --arg="--add-drivers"
+    --arg="vfio-pci"
+  become: true

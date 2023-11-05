@@ -2,11 +2,4 @@ iommu_pt: true
 
 iommu_type: "{{'intel_iommu' if ansible_processor[1] == 'GenuineIntel'}}"
 
-_log_dir: "{{ ansible_env.HOME }}/.uni/hyper/log/vfio"
-
-log_pre: "{{ _log_dir }}/preliminary.log"
-log_iommu: "{{ _log_dir }}/iommu.log"
-log_blacklist: "{{ _log_dir }}/blacklist.log"
-log_finished: "{{ _log_dir }}/finished.log"
-
-overwrite_pciids: True # Overwrite pciids
+overwrite_blacklist: True # Overwrite blacklisted vfio-pci.ids
