@@ -1,6 +1,9 @@
 # works:
 # - https://github.com/FilBot3/fedora-silverblue-gpu-passthrough
 
+- debug:
+    msg: "Home: {{ log_finished }}"
+
 - name: Preliminary Checks
   ansible.builtin.shell: >
     rpm-ostree kargs
@@ -10,8 +13,8 @@
   args:
     creates: "{{ log_pre }}"
   notify:
-  - Reboot
   - Log pre
+  - Reboot
   become: true
 
 - name: Ensure CPU has IOMMU enabled
@@ -23,19 +26,19 @@
   args:
     creates: "{{ log_iommu }}"
   notify:
-  - Reboot
   - Log iommu
+  - Reboot
   become: true
 
-- name: Blacklist gpu
+- name: Blacklist PCI devices!
   ansible.builtin.shell: >
     rpm-ostree kargs
-    --append-if-missing="vfio-pci.ids={{ gpu.pci_string }}"
+    --append-if-missing="vfio-pci.ids={{ vfio_pci_string }}"
   args:
     creates: "{{ log_blacklist }}"
   notify:
-  - Reboot
   - Log blacklist
+  - Reboot
   become: true
 
 - name: perform a dracut to make sure the initramfs has the Kernel module loaded
@@ -47,6 +50,6 @@
   args:
     creates: "{{ log_finished }}"
   notify:
-  - Reboot
   - Log finished
+  - Reboot
   become: true

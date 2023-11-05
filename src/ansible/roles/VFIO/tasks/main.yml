@@ -1,1 +1,6 @@
+- name: Create log directory
+  ansible.builtin.file:
+    path: "{{ _log_dir }}"
+    state: directory
+
 - include_tasks: '{{ ansible_os_family }}/main.yml'
