@@ -10,11 +10,13 @@
 - name: test preliminary
   shell: rpm-ostree kargs | grep "blacklist=nouveau"
   changed_when: False
+  failed_when: False
   register: test_preliminary
 
 - name: test iommu_on
   shell: rpm-ostree kargs | grep "iommu=on"
   changed_when: False
+  failed_when: False
   register: test_iommu_on
 
 - name: test blacklist

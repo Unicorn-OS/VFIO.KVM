@@ -1,11 +1,10 @@
 - name: Setup VFIO on node
-  # hosts: localhost
   hosts: node
   vars:
-    debug: True
+    debug: true
     ansible_become_password: u
     optional_packages: true
   roles:
     - Get hardware/GPU
-    - Get hardware/HDMI Capture Card
+    # - Get hardware/HDMI Capture Card
     - VFIO
