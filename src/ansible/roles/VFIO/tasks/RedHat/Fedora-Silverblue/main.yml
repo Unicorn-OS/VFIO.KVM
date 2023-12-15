@@ -22,7 +22,13 @@
 - name: test blacklist
   shell: rpm-ostree kargs | grep "vfio-pci.ids={{ vfio_pci_string }}"
   changed_when: False
+  failed_when: False
   register: test_blacklist
+
+- debug:
+    msg: test_blacklist
+
+- meta: end_play
 
 # Cleanup
 - name: Remove old devices
