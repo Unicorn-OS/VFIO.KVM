@@ -1,0 +1,8 @@
+- name: Remove PCI devices from blacklist
+  hosts: node #, localhost
+  vars:
+    debug: false #true
+    ansible_become_password: u
+    optional_packages: true
+  roles:
+    - remove device from blacklist

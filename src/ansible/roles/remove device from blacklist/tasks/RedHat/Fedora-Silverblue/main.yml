@@ -1,0 +1,13 @@
+- name: Remove all devices
+  ansible.builtin.shell: >
+    rpm-ostree kargs
+    --delete-if-present="vfio-pci.ids"
+  become: true
+  when: remove_all
+
+- name: Remove single devices
+  ansible.builtin.shell: >
+    rpm-ostree kargs
+    --modify-if-present="vfio-pci.ids"
+  become: true
+  when: remove_single_device
