@@ -27,7 +27,7 @@
 - name: dump test output
   debug:
     msg: "{{ this_pci }}"
-    # msg: '{{ this_pci.pci_string }} {{this_pci.gpu_type}} {{this_pci.blacklist_driver}}'
+    # msg: '{{ this_pci.pci_string }} {{ this_pci.gpu_type }} {{ this_pci.blacklist_driver }}'
   when: debug
 
 

@@ -6,4 +6,5 @@
   roles:
     - Get hardware/GPU
     # - Get hardware/HDMI Capture Card
-    - VFIO
+    # - VFIO
+    - blacklist

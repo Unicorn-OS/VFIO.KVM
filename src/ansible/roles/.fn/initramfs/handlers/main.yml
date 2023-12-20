@@ -1,0 +1,7 @@
+- name: rpm-ostree initramfs # perform a dracut to make sure the initramfs has the Kernel module loaded
+  ansible.builtin.shell: >
+    rpm-ostree initramfs
+    --enable
+    --arg="--add-drivers"
+    --arg="vfio-pci"
+  become: true

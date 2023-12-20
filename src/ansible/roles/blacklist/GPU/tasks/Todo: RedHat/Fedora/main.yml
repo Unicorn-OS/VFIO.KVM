@@ -1,0 +1,15 @@
+# Fedora Flavor
+- name: test Silverblue 0
+  command: which rpm-ostree
+  register: rpm_ostree_exists
+  changed_when: false
+  failed_when: false
+
+- name: Silverblue specific tasks
+  ansible.builtin.include_tasks: rpm-ostree.yml
+  when: rpm_ostree_exists.rc == 0
+
+- name: not Silverblue
+  include_tasks:
+    file: rpm.yml
+  when: rpm_ostree_exists.rc != 0

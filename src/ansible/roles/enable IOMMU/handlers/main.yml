@@ -1,0 +1,11 @@
+- name: Debian Update grub
+  ansible.builtin.command: update-grub
+  become: true
+
+- name: Fedora Update grub
+  ansible.builtin.shell: grub2-mkconfig -o /etc/grub2-efi.cfg
+  become: true
+
+- name: Silverblue Update grub
+  ansible.builtin.shell: grub2-mkconfig -o /etc/grub2-efi.cfg
+  become: true

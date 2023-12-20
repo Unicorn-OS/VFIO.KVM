@@ -1,0 +1,13 @@
+- name: Reboot manually
+  debug:
+    msg: "You must reboot manually and then run this Role again - if localhost"
+  when: (ansible_connection is defined) and (ansible_connection == "local")
+
+- name: Exit if localhost
+  meta: end_host
+  when: (ansible_connection is defined) and (ansible_connection == "local")
+
+- name: Reboot node
+  ansible.builtin.reboot:
+  become: true
+  when: ansible_connection != "local"

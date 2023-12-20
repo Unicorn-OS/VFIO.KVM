@@ -1,0 +1,4 @@
+---
+dependencies:
+- .fn/reboot
+- .fn/initramfs

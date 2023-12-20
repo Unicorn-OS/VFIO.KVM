@@ -1,0 +1,14 @@
+---
+- name: Install core KVM packages
+  community.general.rpm_ostree_pkg:
+    name: "{{ item }}"
+    state: present
+  loop:
+  - virt-install
+  - virt-manager
+  - virt-viewer
+  - libvirt
+  become: true
+  notify:
+  - Reboot
+  - start the libvirtd service

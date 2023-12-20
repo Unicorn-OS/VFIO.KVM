@@ -1,0 +1,22 @@
+- name: Todo - Use Autodetection instead!
+  ansible.builtin.set_fact:
+    existing_kernel_options: "quiet splash"
+
+# Uses clever quotes and regex $ to make idempotent!
+- name: Enable iommu in grub kernel option
+  ansible.builtin.replace:
+    path: /etc/default/grub
+    before: 'GRUB_CMDLINE_LINUX'
+    regexp: '"{{ existing_kernel_options }}"$'
+    replace: 'intel_iommu=on {{ existing_kernel_options }}"'
+  become: true
+  notify: Debian Update grub
+
+
+# .trash
+# - name: Enable iommu in grub kernel option
+#   ansible.builtin.lineinfile:
+#     path: /etc/default/grub
+#     regexp: '^GRUB_CMDLINE_LINUX_DEFAULT'
+#     line: 'GRUB_CMDLINE_LINUX_DEFAULT="intel_iommu=on {{ existing_kernel_options }}"'
+#   become: true

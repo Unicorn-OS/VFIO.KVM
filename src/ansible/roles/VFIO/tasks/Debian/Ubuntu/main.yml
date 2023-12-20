@@ -4,5 +4,3 @@
     pkg:
     - ovmf
   become: true
-
-- include_tasks: "Debian/fn/grub iommu.yml"
