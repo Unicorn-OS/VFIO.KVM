@@ -4,7 +4,7 @@
 
 - name: Template vfio.sh
   ansible.builtin.template:
-    src: vfio.sh.j2
+    src: "{{ ansible_distribution }} vfio.sh.j2"
     dest: /etc/initramfs-tools/scripts/init-top/vfio.sh
     owner: root
     group: root
