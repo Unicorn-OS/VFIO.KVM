@@ -1,4 +1,5 @@
 ---
 dependencies:
+- VFIO/dependency
 - enable IOMMU
 - blacklist

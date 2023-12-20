@@ -177,6 +177,9 @@ def run_module():
     # part where your module will do what it needs to do)
     gpu_num = module.params['gpu_num']
 
+    result['gpu_bus_id'] = getBus(gpu_num)
+    result['audio_bus_id'] = getAudioBus(gpu_num)
+
     result['gpu'] = toHex(getBus(gpu_num))
     result['audio'] = toHex(getAudioBus(gpu_num))
     result['pci_string'] = gpuString(gpu_num)

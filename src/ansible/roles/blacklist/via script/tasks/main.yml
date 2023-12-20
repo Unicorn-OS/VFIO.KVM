@@ -1,0 +1,12 @@
+- name: pci_ids variable for Template
+  ansible.builtin.set_fact:
+    pci_bus_ids: "0000:{{ gpu0.gpu_bus_id }} 0000:{{ gpu0.audio_bus_id }}"
+
+- name: Template vfio.sh
+  ansible.builtin.template:
+    src: vfio.sh.j2
+    dest: /etc/initramfs-tools/scripts/init-top/vfio.sh
+    owner: root
+    group: root
+    mode: '0744'
+  become: true

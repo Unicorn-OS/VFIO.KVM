@@ -1,5 +1,5 @@
 ---
-- name: Replace 
+- name: Add device pci.id to grub
   ansible.builtin.replace:
     path: /etc/default/grub
     before: 'GRUB_CMDLINE_LINUX'

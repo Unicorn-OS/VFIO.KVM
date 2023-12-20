@@ -1,4 +1,3 @@
-debug: false
 gpu_num: 1
 
 # Empty until detected
