@@ -1,7 +1,0 @@
-in: "native"
-repository: false
-source: "download"
-
-alt_repo_manager: false
-
-ubuntu_default: snap

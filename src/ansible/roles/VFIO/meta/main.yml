@@ -1,4 +1,4 @@
 ---
 dependencies:
-- .fn/reboot
-- .fn/initramfs
+- enable IOMMU
+- blacklist

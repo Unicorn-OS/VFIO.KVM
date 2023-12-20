@@ -1,2 +1,5 @@
 dependencies:
-  - blacklist/GPU
+- .fn/reboot
+- .fn/initramfs
+- { role: 'blacklist/GPU', when: gpu }
+- { role: 'blacklist/HDMI Capture Card', when: hdmi_capture_card }

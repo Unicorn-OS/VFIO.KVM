@@ -2,9 +2,5 @@
   hosts: localhost  # , node
   vars:
     debug: false
-    optional_packages: true
   roles:
-    - Get hardware/GPU
-    # - Get hardware/HDMI Capture Card
-    # - VFIO
-    - blacklist
+    - VFIO

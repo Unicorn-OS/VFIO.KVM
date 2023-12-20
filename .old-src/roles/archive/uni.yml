@@ -3,7 +3,6 @@
   vars:
     hwd_overide: 'ASUSTeK ROG Strix'
     ansible_become_password: u
-    optional_packages: true
   roles:
     - my/hw
     - hwd/detect
