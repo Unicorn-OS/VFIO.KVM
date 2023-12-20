@@ -1,0 +1,5 @@
+debug: false
+gpu_num: 1
+
+# Empty until detected
+vfio_pci_string: ''

@@ -1,0 +1,70 @@
+# works:
+# - https://github.com/FilBot3/fedora-silverblue-gpu-passthrough
+
+# .debug
+- debug:
+    msg: "Hello {{ vfio_pci_string }}"
+  when: debug
+
+# Idempotent checks
+- name: test preliminary
+  shell: rpm-ostree kargs | grep "blacklist=nouveau"
+  changed_when: False
+  failed_when: False
+  register: test_preliminary
+
+- name: test iommu_on
+  shell: rpm-ostree kargs | grep "iommu=on"
+  changed_when: False
+  failed_when: False
+  register: test_iommu_on
+
+- name: test blacklist
+  shell: rpm-ostree kargs | grep "vfio-pci.ids={{ vfio_pci_string }}"
+  changed_when: False
+  failed_when: False
+  register: test_blacklist
+
+# Cleanup
+- name: Remove old devices
+  ansible.builtin.shell: >
+    rpm-ostree kargs
+    --delete-if-present="vfio-pci.ids"
+  when: overwrite_blacklist and test_blacklist
+  become: true
+
+# Delete old
+- name: Preliminary Checks
+  ansible.builtin.shell: >
+    rpm-ostree kargs
+    --delete-if-present=rd.driver.blacklist=nouveau
+    --delete-if-present=modprobe.blacklist=nouveau
+    --delete-if-present=nvidia-drm.modeset=1
+  when: test_preliminary.rc != 0
+  become: true
+#---
+
+- name: Ensure CPU has IOMMU enabled
+  ansible.builtin.shell: >
+    rpm-ostree kargs
+    --append-if-missing="{{ iommu_type }}=on"
+    --append-if-missing="iommu=pt"
+    --append-if-missing="rd.driver.pre=vfio_pci"
+  notify:
+  - rpm-ostree initramfs
+  - Reboot
+  when: test_iommu_on.rc != 0
+  become: true
+
+- name: Blacklist PCI devices!
+  ansible.builtin.shell: >
+    rpm-ostree kargs
+    --append-if-missing="vfio-pci.ids={{ vfio_pci_string }}"
+  notify:
+  - rpm-ostree initramfs
+  - Reboot
+  when: test_blacklist.rc != 0
+  become: true
+
+# Use Replace when exists:
+# rpm-ostree kargs --replace=KEY=VALUE=NEWVALUE

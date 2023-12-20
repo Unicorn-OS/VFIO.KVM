@@ -1,0 +1,15 @@
+- name: Create log directory
+  ansible.builtin.file:
+    path: "{{ log_dir }}"
+    state: directory
+    owner: "{{ ansible_env.USER }}"
+    group: "{{ ansible_env.USER }}"
+  become: true
+
+- name: Overwrite kernel vfio-pci.ids
+  ansible.builtin.file:
+    path: "{{ log_blacklist }}"
+    state: absent
+  when: overwrite_blacklist
+
+- include_tasks: '{{ ansible_os_family }}/main.yml'

@@ -1,0 +1,5 @@
+# https://stackoverflow.com/questions/71578834/using-block-in-handler-ansible
+- name: Reboot
+  ansible.builtin.include_tasks:
+    file: reboot.yml
+

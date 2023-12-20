@@ -1,0 +1,11 @@
+- name: is Silverblue?
+  shell: which rpm-ostree
+  register: which
+  failed_when: false
+  changed_when: false
+
+- include_tasks: '{{ ansible_distribution }}-Silverblue/main.yml'
+  when: which.rc == 0
+
+- include_tasks: '{{ ansible_distribution }}/main.yml'
+  when: not which.rc == 0

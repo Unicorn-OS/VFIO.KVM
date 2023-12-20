@@ -1,0 +1,27 @@
+- name: Get a HDMI Capture Card
+  get_HDMI_capture_card:
+    make: 'Elgato'
+  register: this_pci
+
+- name: Make a global Capture_Card variable (from this_pci)
+  ansible.builtin.set_fact:
+    capture_card: this_pci
+
+- name: Append pci_string
+  ansible.builtin.set_fact:
+    vfio_pci_string: "{{vfio_pci_string + ',' + this_pci.pci_string }}"
+    cacheable: True
+  when: vfio_pci_string != ""
+
+- name: Set pci_string (if empty)
+  ansible.builtin.set_fact:
+    vfio_pci_string: "{{this_pci.pci_string }}"
+    cacheable: True
+  when: vfio_pci_string == ""
+
+
+## Molecule
+- name: dump test output
+  debug:
+    msg: "{{ capture_card }}"
+  when: debug
