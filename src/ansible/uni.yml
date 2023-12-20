@@ -1,8 +1,7 @@
 - name: Setup VFIO on node
-  hosts: node #, localhost
+  hosts: localhost  # , node
   vars:
-    debug: false #true
-    ansible_become_password: u
+    debug: false
     optional_packages: true
   roles:
     - Get hardware/GPU

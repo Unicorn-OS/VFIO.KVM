@@ -1,14 +1,17 @@
-- debug:
-    msg: "Hello Silverblue!"
+- include_tasks: "{{ ansible_distribution }}/log.yml"
 
-- name: add intel_iommu to grub
-  ansible.builtin.lineinfile:
-    path: /etc/default/grub
-    regexp: '^GRUB_CMDLINE_LINUX="*'
-    line: 'GRUB_CMDLINE_LINUX="rhgb quiet rd.driver.blacklist={{ vfio.blacklist_driver }} modprobe.blacklist={{ vfio.blacklist_driver }} video=efifb:off {{ iommu_type }}=on {{ "iommu=pt " if iommu_pt }}rd.driver.pre=vfio-pci kvm.ignore_msrs=1 vfio-pci.ids={{ pci_string }}"'
-  notify: Update grub
-  become: true
+# Fedora Flavor
+- name: test Silverblue 0
+  command: which rpm-ostree
+  register: rpm_ostree_exists
+  changed_when: false
+  failed_when: false
 
-#index:
-#- https://gist.github.com/paul-vd/5328d8eb2c626dff36ee143da2e85179
-#- https://discussion.fedoraproject.org/t/change-grub-configuration-and-apply-in-silverblue/74594/5
+- name: Silverblue specific tasks
+  ansible.builtin.include_tasks: rpm-ostree.yml
+  when: rpm_ostree_exists.rc == 0
+
+- name: not Silverblue
+  include_tasks:
+    file: rpm.yml
+  when: rpm_ostree_exists.rc != 0
