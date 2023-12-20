@@ -1,2 +1,6 @@
+# Devices to passthrough:
 gpu: True
 hdmi_capture_card: False
+
+# for Windows 11:
+enable_ignore_msrs: False

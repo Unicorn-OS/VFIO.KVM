@@ -2,11 +2,6 @@
 # works:
 # - https://github.com/FilBot3/fedora-silverblue-gpu-passthrough
 
-# .debug
-- debug:
-    msg: "Hello {{ vfio_pci_string }}"
-  when: debug
-
 # Idempotent checks
 - name: test preliminary
   shell: rpm-ostree kargs | grep "blacklist=nouveau"

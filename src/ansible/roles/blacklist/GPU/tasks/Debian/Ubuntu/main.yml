@@ -1,18 +1,9 @@
 ---
-- debug:
-    msg: "Hello Blacklist! {{ this_pci.gpu_type }} {{ vfio_pci_string }}"
-
-- name: Copy
-  ansible.builtin.copy:
-    src: /etc/default/grub
-    dest: /etc/default/grub.test
-    remote_src: yes
-  become: true
-
 - name: Replace 
   ansible.builtin.replace:
-    path: /etc/default/grub.test
+    path: /etc/default/grub
     before: 'GRUB_CMDLINE_LINUX'
     regexp: 'quiet splash"$'
     replace: 'quiet splash {{ ignore_msrs }}vfio-pci.ids={{ vfio_pci_string }}"'
   become: true
+  notify: Debian Update grub
