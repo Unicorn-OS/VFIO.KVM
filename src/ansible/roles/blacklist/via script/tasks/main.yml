@@ -8,5 +8,5 @@
     dest: /etc/initramfs-tools/scripts/init-top/vfio.sh
     owner: root
     group: root
-    mode: '0744'
+    mode: '0711'
   become: true

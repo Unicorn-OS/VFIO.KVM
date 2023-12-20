@@ -1,4 +1,4 @@
-ignore_msrs: '{{ "kvm.ignore_msrs=1 " if enable_ignore_msrs else "" }}'
+ignore_msrs_kernel_cmdline: '{{ "kvm.ignore_msrs=1 " if enable_ignore_msrs else "" }}'
 
 # make Fedora Silverblue Idempotent:
 overwrite_blacklist: True # Overwrite blacklisted vfio-pci.ids

@@ -4,6 +4,6 @@
     path: /etc/default/grub
     before: 'GRUB_CMDLINE_LINUX'
     regexp: 'quiet splash"$'
-    replace: 'quiet splash {{ ignore_msrs }}vfio-pci.ids={{ vfio_pci_string }}"'
+    replace: 'quiet splash {{ ignore_msrs_kernel_cmdline }}vfio-pci.ids={{ vfio_pci_string }}"'
   become: true
   notify: Debian Update grub
