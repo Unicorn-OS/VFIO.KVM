@@ -1,9 +1,10 @@
 - name: Setup VFIO on node
-  hosts: localhost  # , node
+  hosts: node #, localhost
   vars:
-    enable_ignore_msrs: true  # for Windows 11
-  vars_files:
-    - vars/debug.yml
-
+    debug: false #true
+    ansible_become_password: u
+    optional_packages: true
   roles:
+    - Get hardware/GPU
+    # - Get hardware/HDMI Capture Card
     - VFIO
