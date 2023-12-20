@@ -5,3 +5,7 @@
     --arg="--add-drivers"
     --arg="vfio-pci"
   become: true
+
+- name: Ubuntu update initramfs all
+  ansible.builtin.shell: update-initramfs -u -k all
+  become: true

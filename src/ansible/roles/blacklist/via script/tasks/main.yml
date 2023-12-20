@@ -10,3 +10,4 @@
     group: root
     mode: '0711'
   become: true
+  notify: Ubuntu update initramfs all

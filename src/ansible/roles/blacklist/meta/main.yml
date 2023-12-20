@@ -3,4 +3,4 @@ dependencies:
 - .fn/initramfs
 - { role: 'blacklist/GPU', when: gpu }
 - { role: 'blacklist/HDMI Capture Card', when: hdmi_capture_card }
-- blacklist/via script
+# - blacklist/via script

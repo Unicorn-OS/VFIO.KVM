@@ -7,3 +7,6 @@
     replace: 'quiet splash {{ ignore_msrs_kernel_cmdline }}vfio-pci.ids={{ vfio_pci_string }}"'
   become: true
   notify: Debian Update grub
+
+- ansible.builtin.include_role:
+    name: blacklist/via script
