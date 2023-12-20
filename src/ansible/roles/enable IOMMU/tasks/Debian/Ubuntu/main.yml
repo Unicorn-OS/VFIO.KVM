@@ -8,7 +8,7 @@
     path: /etc/default/grub
     before: 'GRUB_CMDLINE_LINUX'
     regexp: '"{{ existing_kernel_options }}"$'
-    replace: 'intel_iommu=on {{ existing_kernel_options }}"'
+    replace: '"intel_iommu=on {{ existing_kernel_options }}"'
   become: true
   notify: Debian Update grub
 
