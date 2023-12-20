@@ -1,5 +1,5 @@
 - name: Setup VFIO on node
-  hosts: node #, localhost
+  hosts: localhost
   vars:
     debug: false #true
     ansible_become_password: u
