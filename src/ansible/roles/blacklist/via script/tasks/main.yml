@@ -1,3 +1,5 @@
+# from: https://mathiashueber.com/pci-passthrough-ubuntu-2004-virtual-machine/
+
 - name: pci_ids variable for Template
   ansible.builtin.set_fact:
     pci_bus_ids: "0000:{{ gpu0.gpu_bus_id }} 0000:{{ gpu0.audio_bus_id }}"
