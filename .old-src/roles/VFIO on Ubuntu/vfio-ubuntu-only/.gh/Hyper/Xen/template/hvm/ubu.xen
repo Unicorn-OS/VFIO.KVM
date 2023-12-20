@@ -1,9 +1,0 @@
-builder = "hvm"
-name = "xenial"
-memory = "2512"
-vcpus = 2
-vif = ['script=vif-openvswitch,bridge=ovsbr0']
-disk = ['tap:qcow2:/media/me/unifs-1tb/Uni/cloud/img/xenial.img,xvda,w']
-boot = "c"
-snapshot = 1
-usbdevice = "tablet"

@@ -1,6 +1,0 @@
-#!/bin/bash
-cd /var/log/libvirt/qemu
-
-getLog(){
-sudo rm * ; sudo cat ubuntu18.04.log
-}

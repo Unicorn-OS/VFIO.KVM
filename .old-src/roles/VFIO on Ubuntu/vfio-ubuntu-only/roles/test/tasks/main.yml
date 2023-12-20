@@ -1,6 +1,0 @@
----
-- name: check
-  include_tasks: dbg/check.yml
-
-# - name: vm
-#   include_tasks: vm/main.yml

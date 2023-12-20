@@ -1,9 +1,0 @@
-
-usbdevice = "tablet"
-vga = "stdvga"
-vnc = 0
-#sdl = 1
-spice=1
-spicehost='0.0.0.0'
-spiceport=6000
-spicepasswd = 'p'

@@ -1,3 +1,0 @@
-- id: hivex
-  desc: 'The hivex subproject lets you merge changes into the Windows Registry in Windows guests.'
-  url: http://libguestfs.org/hivex.3.html

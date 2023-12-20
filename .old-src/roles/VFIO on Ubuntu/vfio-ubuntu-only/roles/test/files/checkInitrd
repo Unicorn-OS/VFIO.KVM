@@ -1,9 +1,0 @@
-#!/usr/bin/bash
-# http://wrightrocket.blogspot.com/2019/05/view-contents-of-initrdimg-on-ubuntu.html
-
-kernel=/boot/initrd.img-$(uname -r)
-lsinitramfs $kernel | grep -i vfio > ori
-lsinitramfs $kernel > ori.all
-
-cat ori
-cat ori.all

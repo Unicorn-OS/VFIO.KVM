@@ -1,6 +1,0 @@
-// Xen on ubuntu >= 16.04 uses systemd
-
-sudo systemctl enable xencommons
-sudo systemctl enable xendomains
-sudo systemctl enable xen-watchdog
-sudo systemctl enable xendriverdomain

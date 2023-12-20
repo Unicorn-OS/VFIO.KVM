@@ -1,5 +1,0 @@
-
-- name: Fix audio issues in linux
-  lineinfile:
-    path: /etc/modprobe.d/snd-hda-intel.conf
-    line: options snd-hda-intel enable_msi=1

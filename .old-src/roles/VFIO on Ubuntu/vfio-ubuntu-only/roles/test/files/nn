@@ -1,3 +1,0 @@
-#!/bin/bash
-#prime: wiki.archlinux.org/index.php/PCI_passthrough_via_OVMF#Ensuring_that_the_groups_are_valid
-lspci -nnk

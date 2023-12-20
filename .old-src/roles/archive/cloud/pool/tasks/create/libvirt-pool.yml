@@ -1,9 +1,0 @@
----
-- name: Create pool
-  become: true
-  command: 'virsh pool-define-as os dir - - - - "{{ cloud }}/libvirt/os"'
-  args:
-    creates: /etc/libvirt/storage/os.xml
-  notify:
-  - autostart pool
-  - start pool now

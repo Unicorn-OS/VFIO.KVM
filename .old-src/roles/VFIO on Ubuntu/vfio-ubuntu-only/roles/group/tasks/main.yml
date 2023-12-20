@@ -1,6 +1,0 @@
----
-- name: dracut
-  include_tasks: dracut/dracut.yml
-
-- name: initramfs
-  include_tasks: dracut/initramfs.yml

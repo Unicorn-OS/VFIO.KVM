@@ -1,5 +1,0 @@
----
-grub:
-  efifb: ''
-
-kvm_amd: 'kvm_amd.npt=1 kvm_amd.avic=1'
