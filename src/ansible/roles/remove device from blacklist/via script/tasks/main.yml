@@ -1,0 +1,7 @@
+---
+- name: Remove file (delete file)
+  ansible.builtin.file:
+    path: /etc/initramfs-tools/scripts/init-top/vfio.sh
+    state: absent
+  become: true
+  notify: Ubuntu update initramfs all

@@ -3,4 +3,4 @@
   vars:
     debug: false
   roles:
-    - remove device from blacklist
+    - remove device from blacklist/all
