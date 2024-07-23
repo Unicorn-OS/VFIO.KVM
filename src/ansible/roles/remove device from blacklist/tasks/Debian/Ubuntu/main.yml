@@ -1,3 +1,11 @@
 - debug:
     msg: "Hello Ubuntu!"
 
+- name: Remove All devices pci.id from grub
+  ansible.builtin.replace:
+    path: /etc/default/grub
+    before: 'GRUB_CMDLINE_LINUX'
+    regexp: 'quiet splash"$'
+    replace: 'quiet splash {{ ignore_msrs_kernel_cmdline }}"'
+  become: true
+  notify: Debian Update grub
