@@ -3,3 +3,6 @@ overwrite_blacklist: True # Overwrite blacklisted vfio-pci.ids
 log_dir: /opt/hyperion/vfio/log
 
 log_blacklist: /opt/hyperion/vfio/log/blacklist.log
+
+# Vars From: blacklist/GPU/vars/main.yml
+ignore_msrs_kernel_cmdline: '{{ "kvm.ignore_msrs=1 " if enable_ignore_msrs else "" }}'
