@@ -9,3 +9,7 @@
 - name: Ubuntu update initramfs all
   ansible.builtin.shell: update-initramfs -u -k all
   become: true
+
+- name: update initramfs Zorin OS
+  ansible.builtin.shell: "update-initramfs -u -k $(uname -r)"
+  become: true
