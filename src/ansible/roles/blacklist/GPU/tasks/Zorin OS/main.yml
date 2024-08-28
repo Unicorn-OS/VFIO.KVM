@@ -9,6 +9,7 @@
     path: /etc/modprobe.d/blacklist-vfio.conf
     regexp: '^options vfio-pci'
     line: 'options vfio-pci ids=1002:73ff,1002:ab28'
+    create: true
   become: true
   notify:
   - update initramfs Zorin OS

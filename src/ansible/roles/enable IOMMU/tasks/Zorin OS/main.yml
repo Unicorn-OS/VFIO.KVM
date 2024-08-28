@@ -1,19 +1,7 @@
 ---
-#https://en.wikipedia.org/wiki/Zorin_OS
-#https://distrowatch.com/table.php?distribution=zorin
-
-
-# Slightly different from Ubuntu!
-# Has to use the second field: `GRUB_CMDLINE_LINUX=`
-# - name: ZorinOS - Enable iommu in grub kernel option
-#   ansible.builtin.replace:
-#     path: /etc/default/grub
-#     before: 'GRUB_CMDLINE_LINUX="'
-#     regexp: '{{ existing_kernel_options }}"$'
-#     replace: 'intel_iommu=on {{ existing_kernel_options }}"'
-#   become: true
-#   notify: Debian Update grub
-
+- name: Todo - Use Autodetection instead!
+  ansible.builtin.set_fact:
+    existing_kernel_options: "quiet splash"
 
 # Test:
 # Uses clever quotes and regex $ to make idempotent!
@@ -26,3 +14,13 @@
   become: true
   notify: Debian Update grub
 
+# Slightly different from Ubuntu!
+# `GRUB_CMDLINE_LINUX` instead
+# - name: ZorinOS - Enable iommu in grub kernel option
+#   ansible.builtin.replace:
+#     path: /etc/default/grub
+#     before: 'GRUB_CMDLINE_LINUX="'
+#     regexp: '{{ existing_kernel_options }}"$'
+#     replace: 'intel_iommu=on {{ existing_kernel_options }}"'
+#   become: true
+#   notify: Debian Update grub
