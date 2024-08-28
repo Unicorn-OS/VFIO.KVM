@@ -2,5 +2,14 @@
 - name: Subclass of Debian.Ubuntu
   include_tasks: 'Debian/Ubuntu/main.yml'
 
-#https://en.wikipedia.org/wiki/Zorin_OS
-#https://distrowatch.com/table.php?distribution=zorin
+#https://forum.zorin.com/t/zorin-os-17-doesnt-use-gpu-pass-for-kvm/32050/6
+
+- name: Blacklist in modprobe.d
+  ansible.builtin.lineinfile:
+    path: /etc/modprobe.d/blacklist-vfio.conf
+    regexp: '^options vfio-pci'
+    line: 'options vfio-pci ids=1002:73ff,1002:ab28'
+  become: true
+  notify:
+  - update initramfs Zorin OS
+

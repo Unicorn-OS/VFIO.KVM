@@ -10,3 +10,4 @@
   become: true
   notify:
   - update initramfs Zorin OS
+  

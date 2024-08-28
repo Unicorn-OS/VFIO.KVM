@@ -3,4 +3,5 @@ dependencies:
 - VFIO/dependency
 - enable IOMMU
 - performance
+- vfio-pci
 - blacklist

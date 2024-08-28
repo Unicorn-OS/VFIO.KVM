@@ -6,5 +6,4 @@
     - vars/debug.yml
 
   roles:
-    - vfio-pci
-#    - VFIO
+    - VFIO
