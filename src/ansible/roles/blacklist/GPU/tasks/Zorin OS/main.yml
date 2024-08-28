@@ -4,13 +4,35 @@
 
 #https://forum.zorin.com/t/zorin-os-17-doesnt-use-gpu-pass-for-kvm/32050/6
 
-- name: Blacklist in modprobe.d
+# - name: Blacklist in modprobe.d
+#   ansible.builtin.lineinfile:
+#     path: /etc/modprobe.d/blacklist-vfio.conf
+#     regexp: '^options vfio-pci'
+#     line: 'options vfio-pci ids=1002:73ff,1002:ab28'
+#     create: true
+#   become: true
+#   notify:
+#   - update initramfs Zorin OS
+
+# Works!
+#https://forum.proxmox.com/threads/fix-pci-passthrough-documentation.122521/
+
+- name: Blacklist amdgpu in modprobe.d
   ansible.builtin.lineinfile:
-    path: /etc/modprobe.d/blacklist-vfio.conf
-    regexp: '^options vfio-pci'
-    line: 'options vfio-pci ids=1002:73ff,1002:ab28'
+    path: /etc/modprobe.d/blacklist.conf
+    regexp: '^blacklist amdgpu'
+    line: 'blacklist amdgpu'
     create: true
   become: true
   notify:
   - update initramfs Zorin OS
 
+- name: Blacklist radeon in modprobe.d
+  ansible.builtin.lineinfile:
+    path: /etc/modprobe.d/blacklist.conf
+    regexp: '^blacklist radeon'
+    line: 'blacklist radeon'
+    create: true
+  become: true
+  notify:
+  - update initramfs Zorin OS

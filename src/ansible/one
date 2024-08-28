@@ -1,0 +1,69 @@
+00:00.0 Host bridge [0600]: Intel Corporation Device [8086:4630] (rev 05)
+	Subsystem: ASRock Incorporation Device [1849:4630]
+00:01.0 PCI bridge [0604]: Intel Corporation 12th Gen Core Processor PCI Express x16 Controller #1 [8086:460d] (rev 05)
+	Kernel driver in use: pcieport
+00:02.0 VGA compatible controller [0300]: Intel Corporation Device [8086:4692] (rev 0c)
+	Subsystem: ASRock Incorporation Device [1849:4692]
+	Kernel driver in use: i915
+	Kernel modules: i915, xe
+00:08.0 System peripheral [0880]: Intel Corporation 12th Gen Core Processor Gaussian & Neural Accelerator [8086:464f] (rev 05)
+	Subsystem: ASRock Incorporation Device [1849:464f]
+00:14.0 USB controller [0c03]: Intel Corporation Device [8086:7ae0] (rev 11)
+	Subsystem: ASRock Incorporation Device [1849:7ae0]
+	Kernel driver in use: xhci_hcd
+	Kernel modules: xhci_pci
+00:14.2 RAM memory [0500]: Intel Corporation Device [8086:7aa7] (rev 11)
+00:15.0 Serial bus controller [0c80]: Intel Corporation Device [8086:7acc] (rev 11)
+	Subsystem: ASRock Incorporation Device [1849:7acc]
+	Kernel driver in use: intel-lpss
+	Kernel modules: intel_lpss_pci
+00:16.0 Communication controller [0780]: Intel Corporation Device [8086:7ae8] (rev 11)
+	Subsystem: ASRock Incorporation Device [1849:7ae8]
+	Kernel driver in use: mei_me
+	Kernel modules: mei_me
+00:17.0 SATA controller [0106]: Intel Corporation Device [8086:7ae2] (rev 11)
+	Subsystem: ASRock Incorporation Device [1849:7ae2]
+	Kernel driver in use: ahci
+	Kernel modules: ahci
+00:1c.0 PCI bridge [0604]: Intel Corporation Device [8086:7ab8] (rev 11)
+	Kernel driver in use: pcieport
+00:1c.6 PCI bridge [0604]: Intel Corporation Device [8086:7abe] (rev 11)
+	Kernel driver in use: pcieport
+00:1f.0 ISA bridge [0601]: Intel Corporation Device [8086:7a87] (rev 11)
+	Subsystem: ASRock Incorporation Device [1849:7a87]
+00:1f.3 Audio device [0403]: Intel Corporation Device [8086:7ad0] (rev 11)
+	Subsystem: ASRock Incorporation Device [1849:3897]
+	Kernel driver in use: snd_hda_intel
+	Kernel modules: snd_hda_intel, snd_sof_pci_intel_tgl
+00:1f.4 SMBus [0c05]: Intel Corporation Device [8086:7aa3] (rev 11)
+	Subsystem: ASRock Incorporation Device [1849:7aa3]
+	Kernel driver in use: i801_smbus
+	Kernel modules: i2c_i801
+00:1f.5 Serial bus controller [0c80]: Intel Corporation Device [8086:7aa4] (rev 11)
+	Subsystem: ASRock Incorporation Device [1849:7aa4]
+	Kernel driver in use: intel-spi
+	Kernel modules: spi_intel_pci
+01:00.0 PCI bridge [0604]: Advanced Micro Devices, Inc. [AMD/ATI] Navi 10 XL Upstream Port of PCI Express Switch [1002:1478] (rev c1)
+	Kernel driver in use: pcieport
+02:00.0 PCI bridge [0604]: Advanced Micro Devices, Inc. [AMD/ATI] Navi 10 XL Downstream Port of PCI Express Switch [1002:1479]
+	Kernel driver in use: pcieport
+03:00.0 VGA compatible controller [0300]: Advanced Micro Devices, Inc. [AMD/ATI] Navi 23 [Radeon RX 6600/6600 XT/6600M] [1002:73ff] (rev c1)
+	Subsystem: Micro-Star International Co., Ltd. [MSI] Navi 23 [Radeon RX 6600/6600 XT/6600M] [1462:5021]
+	Kernel driver in use: amdgpu
+	Kernel modules: amdgpu
+03:00.1 Audio device [0403]: Advanced Micro Devices, Inc. [AMD/ATI] Navi 21 HDMI Audio [Radeon RX 6800/6800 XT / 6900 XT] [1002:ab28]
+	Subsystem: Advanced Micro Devices, Inc. [AMD/ATI] Navi 21 HDMI Audio [Radeon RX 6800/6800 XT / 6900 XT] [1002:ab28]
+	Kernel driver in use: vfio-pci
+	Kernel modules: snd_hda_intel
+04:00.0 Ethernet controller [0200]: Realtek Semiconductor Co., Ltd. RTL8111/8168/8411 PCI Express Gigabit Ethernet Controller [10ec:8168] (rev 15)
+	Subsystem: ASRock Incorporation Motherboard (one of many) [1849:8168]
+	Kernel driver in use: r8169
+	Kernel modules: r8169
+05:00.0 Ethernet controller [0200]: Broadcom Inc. and subsidiaries NetXtreme II BCM5709 Gigabit Ethernet [14e4:1639] (rev 20)
+	Subsystem: Hewlett-Packard Company NC382T PCIe Dual Port Multifunction Gigabit Server Adapter [103c:7059]
+	Kernel driver in use: bnx2
+	Kernel modules: bnx2
+05:00.1 Ethernet controller [0200]: Broadcom Inc. and subsidiaries NetXtreme II BCM5709 Gigabit Ethernet [14e4:1639] (rev 20)
+	Subsystem: Hewlett-Packard Company NC382T PCIe Dual Port Multifunction Gigabit Server Adapter [103c:7059]
+	Kernel driver in use: bnx2
+	Kernel modules: bnx2
