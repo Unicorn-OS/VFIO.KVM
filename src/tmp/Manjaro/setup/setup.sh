@@ -7,7 +7,11 @@ GRUB_CMDLINE_LINUX_DEFAULT='quiet apparmor=1 security=apparmor udev.log_priority
 
 sudo grub-mkconfig -o /boot/grub/grub.cfg
 
-# Add Modules
+# 3.2 Loading vfio-pci early
+echo "softdep drm pre: vfio-pci" | sudo tee /etc/modprobe.d/vfio.conf
+
+
+# 3.2.2.1 mkinitcpio
 sudo nano /etc/mkinitcpio.conf
 
 line="""
@@ -21,3 +25,7 @@ ls /etc/mkinitcpio.d/
 version=66
 
 sudo mkinitcpio -p linux${version}
+
+
+# test:
+cat /proc/cmdline
