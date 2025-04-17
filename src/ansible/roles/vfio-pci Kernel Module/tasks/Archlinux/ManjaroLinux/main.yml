@@ -19,5 +19,6 @@
     path: /etc/modprobe.d/vfio.conf
     regexp: '^softdep drm pre'
     line: "softdep drm pre: vfio-pci"
+    create: true
   become: true
   notify: ArchLinux update initramfs
