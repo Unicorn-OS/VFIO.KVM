@@ -15,9 +15,3 @@
     replace: "'intel_iommu=on {{ existing_kernel_options }}"
   become: true
   notify: ArchLinux Update grub
-
-- name: Flush Handlers
-  ansible.builtin.meta: flush_handlers
-
-- name: End it all
-  ansible.builtin.meta: end_play

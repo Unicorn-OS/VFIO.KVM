@@ -1,0 +1,18 @@
+---
+# TODO: Need to Extract this dynamically!
+# stopgap: staticly defined here.
+- name: Existing modules - TODO!
+  ansible.builtin.set_fact:
+    existing_modules: "crc32c-intel"
+
+- name: Enable vfio_pci Kernel Module
+  ansible.builtin.replace:
+    path: /etc/mkinitcpio.conf
+    before: "# BINARIES"
+    regexp: '^MODULES\=\(([A-Za-z0-9\s_-]*)\)$'
+    replace: "MODULES=(vfio_pci vfio vfio_iommu_type1 {{ existing_modules }})"
+  become: true
+  notify: ArchLinux update initramfs
+
+- name: End it all
+  ansible.builtin.meta: end_play

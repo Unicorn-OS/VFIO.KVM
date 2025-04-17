@@ -13,3 +13,8 @@
 - name: update initramfs Zorin OS
   ansible.builtin.shell: "update-initramfs -u -k $(uname -r)"
   become: true
+
+# Arch uses file with kernel version: "/etc/mkinitcpio.d/linux612.preset" with major & minor kernel version. We use a fact -> Regex -> & Replace filter to match it!
+- name: ArchLinux update initramfs
+  ansible.builtin.shell: "mkinitcpio -p linux{{ ansible_kernel | regex_search('^([0-9]+).([0-9]+)') | replace('.','')}}"
+  become: true

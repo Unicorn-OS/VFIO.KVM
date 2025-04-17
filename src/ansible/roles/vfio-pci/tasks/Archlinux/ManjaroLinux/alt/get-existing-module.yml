@@ -1,0 +1,24 @@
+# Almost!
+# regexp: '^MODULES\=\(([A-Za-z0-9\s_-]*)\)$'
+# Lookahead: (?=foo)
+
+- name: Read /etc/mkinitcpio.conf content
+  shell:
+    cmd: cat /etc/mkinitcpio.conf
+  register: mkinitcpio
+
+- name: Get existing modules
+  set_fact:
+    my_var: "{{ mkinitcpio.stdout | regex_search('MODULES\\=\\(') }}"
+
+- name: Print
+  debug:
+    var: my_var
+
+# OR
+---
+
+- name: Get existing Modules
+  ansible.builtin.debug:
+    msg: "{{ lookup('ansible.builtin.file', '/etc/mkinitcpio.conf') | regex_search('database[0-9]+') | first }}"
+
