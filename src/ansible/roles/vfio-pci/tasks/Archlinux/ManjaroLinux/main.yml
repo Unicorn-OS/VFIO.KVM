@@ -13,6 +13,3 @@
     replace: "MODULES=(vfio_pci vfio vfio_iommu_type1 {{ existing_modules }})"
   become: true
   notify: ArchLinux update initramfs
-
-- name: End it all
-  ansible.builtin.meta: end_play
