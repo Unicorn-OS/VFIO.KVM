@@ -1,7 +1,7 @@
 ---
 dependencies:
-# - OVMF
-# - enable IOMMU
-# - performance
-- vfio-pci
-# - blacklist
+- OVMF
+- enable IOMMU
+- performance
+- vfio-pci Kernel Module
+- blacklist

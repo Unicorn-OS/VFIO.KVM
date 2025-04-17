@@ -1,2 +1,4 @@
-- name: OS specific
-  include_tasks: '{{ ansible_distribution }}/main.yml'
+---
+
+- name: Arch Distro specific
+  include_tasks: "{{ ansible_lsb.id }}/main.yml"

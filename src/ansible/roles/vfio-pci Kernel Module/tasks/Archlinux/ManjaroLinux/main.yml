@@ -13,3 +13,11 @@
     replace: "MODULES=(vfio_pci vfio vfio_iommu_type1 {{ existing_modules }})"
   become: true
   notify: ArchLinux update initramfs
+
+- name: Loading vfio-pci early
+  ansible.builtin.lineinfile:
+    path: /etc/modprobe.d/vfio.conf
+    regexp: '^softdep drm pre'
+    line: "softdep drm pre: vfio-pci"
+  become: true
+  notify: ArchLinux update initramfs

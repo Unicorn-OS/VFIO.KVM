@@ -1,0 +1,14 @@
+---
+
+- name: TODO - Detect dynmaically instead!
+  ansible.builtin.set_fact:
+    existing_kernel_options: "intel_iommu=on quiet splash" # udev.log_priority=3
+
+- name: Add device pci.id to grub
+  ansible.builtin.replace:
+    path: /etc/default/grub
+    before: "GRUB_CMDLINE_LINUX"
+    regexp: "'{{ existing_kernel_options }}"
+    replace: "'{{ ignore_msrs_kernel_cmdline }}vfio-pci.ids={{ vfio_pci_string }} {{ existing_kernel_options }}"
+  become: true
+  notify: ArchLinux Update grub
