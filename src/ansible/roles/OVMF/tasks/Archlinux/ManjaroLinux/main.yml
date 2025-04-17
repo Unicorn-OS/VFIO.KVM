@@ -1,0 +1,10 @@
+---
+
+- name: OVMF package
+  community.general.pacman:
+    name:
+    - ovmf
+    # - edk2-ovmf
+    state: latest
+    update_cache: true
+  become: true

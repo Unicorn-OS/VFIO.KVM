@@ -1,6 +1,6 @@
 ---
 dependencies:
-- VFIO/dependency
+- OVMF
 - enable IOMMU
 - performance
 - vfio-pci

@@ -9,3 +9,7 @@
 - name: Silverblue Update grub
   ansible.builtin.shell: grub2-mkconfig -o /etc/grub2-efi.cfg
   become: true
+
+- name: ArchLinux Update grub
+  ansible.builtin.command: grub-mkconfig -o /boot/grub/grub.cfg
+  become: true
