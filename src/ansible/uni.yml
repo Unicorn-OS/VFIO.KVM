@@ -1,5 +1,5 @@
 - name: Setup VFIO on node
-  hosts: node #localhost # , node
+  hosts: localhost #node
   vars:
     enable_ignore_msrs: true  # for Windows 11
   vars_files:
@@ -7,3 +7,4 @@
 
   roles:
     - VFIO
+    # - blacklist

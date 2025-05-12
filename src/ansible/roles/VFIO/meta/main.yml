@@ -4,4 +4,4 @@ dependencies:
 - enable IOMMU
 - performance
 - vfio-pci Kernel Module
-- blacklist
+# - blacklist
