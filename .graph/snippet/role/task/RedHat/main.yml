@@ -1,0 +1,9 @@
+---
+- name: add intel_iommu to grub
+  ansible.builtin.lineinfile:
+    path: /etc/default/grub
+    regexp: '^GRUB_CMDLINE_LINUX="*'
+    line: 'GRUB_CMDLINE_LINUX="rhgb quiet rd.driver.blacklist={{ vfio.blacklist_driver }} modprobe.blacklist={{ vfio.blacklist_driver }} video=efifb:off {{ iommu_type }}=on {{ "iommu=pt " if iommu_pt }}rd.driver.pre=vfio-pci kvm.ignore_msrs=1 vfio-pci.ids={{ pci_string }}"'
+  notify: Silverblue Update grub
+  become: true
+

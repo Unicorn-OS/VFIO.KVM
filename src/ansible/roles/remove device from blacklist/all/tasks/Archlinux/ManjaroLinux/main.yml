@@ -1,9 +1,9 @@
 ---
-- name: Remove All devices pci.id from grub
+- name: Remove All devices vfio-pci.id from grub
   ansible.builtin.replace:
     path: /etc/default/grub
     before: 'GRUB_CMDLINE_LINUX'
-    regexp: 'quiet splash"$'
-    replace: 'quiet splash {{ ignore_msrs_kernel_cmdline }}"'
+    regexp: 'vfio-pci.ids\=[0-9:A-z,]*'
+    replace: ''
   become: true
   notify: ArchLinux Update grub
