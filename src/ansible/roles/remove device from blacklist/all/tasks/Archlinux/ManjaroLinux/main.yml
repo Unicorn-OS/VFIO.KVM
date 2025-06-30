@@ -6,4 +6,4 @@
     regexp: 'quiet splash"$'
     replace: 'quiet splash {{ ignore_msrs_kernel_cmdline }}"'
   become: true
-  notify: Debian Update grub
+  notify: ArchLinux Update grub
