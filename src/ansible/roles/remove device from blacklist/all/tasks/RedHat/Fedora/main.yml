@@ -1,10 +1,2 @@
 ---
 
-- name: Remove All devices vfio-pci.id from grub
-  ansible.builtin.replace:
-    path: /etc/default/grub
-    before: 'GRUB_CMDLINE_LINUX'
-    regexp: 'vfio-pci.ids\=[0-9:A-z,]*'
-    replace: ''
-  become: true
-  notify: RedHat Update grub

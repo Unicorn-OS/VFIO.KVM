@@ -6,4 +6,4 @@
     regexp: 'vfio-pci.ids\=[0-9:A-z,]*[ ]'
     replace: ''
   become: true
-  notify: ArchLinux Update grub
+  notify: Update grub for distro

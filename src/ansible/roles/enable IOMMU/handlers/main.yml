@@ -1,3 +1,10 @@
+---
+# Todo:
+# Uses distro specific methods!
+- name: Update grub for distro
+  include_tasks: 'Update grub/{{ ansible_os_family }}/main.yml'
+# Todo
+
 - name: Debian Update grub
   ansible.builtin.command: update-grub
   become: true

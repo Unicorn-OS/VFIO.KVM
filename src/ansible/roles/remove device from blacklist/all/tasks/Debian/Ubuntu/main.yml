@@ -12,7 +12,7 @@
   ansible.builtin.replace:
     path: /etc/default/grub
     before: 'GRUB_CMDLINE_LINUX'
-    regexp: 'vfio-pci.ids\=[0-9:A-z,]*'
+    regexp: 'vfio-pci.ids\=[0-9:A-z,]*[ ]'
     replace: ''
   become: true
   notify: Debian Update grub

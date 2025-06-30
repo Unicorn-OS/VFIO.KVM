@@ -12,4 +12,6 @@
     state: absent
   when: overwrite_blacklist
 
+- include_tasks: 'library/grub remove vfio-pci.id all.yml'
+
 - include_tasks: '{{ ansible_os_family }}/main.yml'
