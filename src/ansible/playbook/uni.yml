@@ -7,5 +7,5 @@
     - vars/debug.yml
 
   roles:
-    - VFIO
+    - UniInc.VFIO
     - blacklist
