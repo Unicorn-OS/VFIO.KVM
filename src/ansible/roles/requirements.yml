@@ -1,0 +1,10 @@
+---
+roles:
+- UniInc.VFIO
+- UniInc.OVMF
+- UniInc.Enable-IOMMU
+- UniInc.KVM-ignore_msrs
+- UniInc.VFIO-PCI-Kernel-module
+- UniInc.Initramfs
+- UniInc.Reboot
+# - UniInc.VFIO-blacklist

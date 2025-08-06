@@ -1,6 +1,0 @@
----
-- name: Install VFIO dependencies
-  ansible.builtin.apt:
-    pkg:
-    - ovmf
-  become: true

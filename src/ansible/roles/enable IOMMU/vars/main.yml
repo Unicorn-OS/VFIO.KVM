@@ -1,3 +1,0 @@
-iommu_pt: true
-
-iommu_type: "{{'intel_iommu' if ansible_processor[1] == 'GenuineIntel'}}"

@@ -1,6 +1,0 @@
----
-- name: Subclass of Debian.Ubuntu
-  include_tasks: 'Debian/Ubuntu/main.yml'
-
-#https://en.wikipedia.org/wiki/Zorin_OS
-#https://distrowatch.com/table.php?distribution=zorin

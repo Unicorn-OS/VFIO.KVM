@@ -1,3 +1,4 @@
+---
 - name: Remove PCI devices from blacklist
   hosts: localhost
   vars:
