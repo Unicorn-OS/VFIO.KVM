@@ -1,4 +1,3 @@
 dependencies:
-#- UniInc.Update-Grub	# Handler
-- ansible-role-Update-Grub
+- UniInc.Update-Grub	# Handler
 - remove device from blacklist/via script

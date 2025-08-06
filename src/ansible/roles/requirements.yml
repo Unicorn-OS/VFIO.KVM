@@ -5,6 +5,9 @@ roles:
 - UniInc.Enable-IOMMU
 - UniInc.KVM-ignore_msrs
 - UniInc.VFIO-PCI-Kernel-module
+# - UniInc.VFIO-blacklist
+
+# Functions:
 - UniInc.Initramfs
 - UniInc.Reboot
-# - UniInc.VFIO-blacklist
+- UniInc.Update-Grub
