@@ -1,6 +1,6 @@
 dependencies:
-- UniInc/Reboot
-- UniInc/initramfs
+- UniInc.Reboot
+- UniInc.Initramfs
 - { role: 'blacklist/GPU', when: gpu }
 - { role: 'blacklist/HDMI Capture Card', when: hdmi_capture_card }
 # - blacklist/via script
